@@ -25,38 +25,191 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item">
+                    <a href="pages/widgets.html" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Starter Pages
+                            لوحة التحكم
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header text-bold text-right">الفواتير</li>
+                <li class="nav-item has-treeview ">
+                    <a href="#" class="nav-link ">
+                        <i class="fas fa-cart-plus"></i>
+                        <p>
+                            المبيعات
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Active Page</p>
+                            <a href="./index.html" class="nav-link ">
+                                <i class="fas fa-cash-register"></i>
+                                <p>فاتورة بيع</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Inactive Page</p>
+                            <a href="./index2.html" class="nav-link">
+                                <i class="fas fa-file-alt"></i>
+                                <p>فاتورة عودة</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link ">
+                        <i class="fas fa-ambulance"></i>
                         <p>
-                            Simple Link
-                            <span class="right badge badge-danger">New</span>
+                            المشتريات
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link active">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                <p>فاتورة شراء</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./index2.html" class="nav-link">
+                                <i class="fas fa-external-link-square-alt"></i>
+                                <p>أمر شراء</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-header text-bold text-right">الموارد البشرية</li>
+                <li class="nav-item">
+                    <a href="https://adminlte.io/docs/3.0" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <p>العمال</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://adminlte.io/docs/3.0" class="nav-link">
+                        <i class="fas fa-handshake"></i>
+                        <p>الشركاء</p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-people-arrows"></i>
+                        <p>
+                            المتعاملين الإقتصاديين
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="pages/layout/top-nav.html" class="nav-link">
+                                <i class="fas fa-people-carry"></i>
+                                <p>الزبائن</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                <i class="fas fa-truck-loading"></i>
+                                <p>الموردين</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-header text-bold text-right">المخزن</li>
+                <li class="nav-item">
+                    <a href="pages/calendar.html" class="nav-link">
+                        <i class="fas fa-plus"></i>
+                        <p>
+                            منتج جديد
                         </p>
                     </a>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-boxes"></i>
+                        <p>
+                            المنتجات
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="pages/mailbox/mailbox.html" class="nav-link">
+                                <i class="fas fa-th-list"></i>
+                                <p>قائمة المنتجات</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/mailbox/compose.html" class="nav-link">
+                                <i class="fas fa-th-list"></i>
+                                <p>قائمة الفئات</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-header text-bold text-right">قسم المحاسبة</li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <p>
+                            مواعيد الدفع
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-th-list"></i>
+                                <p>قائمة المواعيد</p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-calendar-plus"></i>
+                                <p>
+                                     إضافة موعد زبون
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-calendar-plus"></i>
+                                <p>
+                                    إضافة موعد لمورد
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-coins"></i>
+                        <p>
+                            الصندوق
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-th-list"></i>
+                                <p>قائمة الصناديق</p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-piggy-bank"></i>
+                                <p>
+                                    إضافة صندوق جديد
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

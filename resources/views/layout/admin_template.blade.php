@@ -110,5 +110,9 @@
 <script src="/bower_components/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/bower_components/admin-lte/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="/bower_components/admin-lte/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/bower_components/admin-lte/dist/js/demo.js"></script>
 </body>
 </html>
