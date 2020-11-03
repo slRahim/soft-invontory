@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBonReceptionsTable extends Migration
+class CreateFactureClientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBonReceptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bon_receptions', function (Blueprint $table) {
+        Schema::create('facture_clients', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateBonReceptionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bon_receptions');
+        Schema::dropIfExists('facture_clients');
     }
 }

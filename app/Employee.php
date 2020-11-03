@@ -15,4 +15,8 @@ class Employee extends Model
     protected $hidden =[
 
     ];
+
+    public function acompteEmps (){
+        return $this->hasMany('App\AcompteEmp','emp_id');
+    }
 }

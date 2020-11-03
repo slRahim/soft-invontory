@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBonComptoiresTable extends Migration
+class CreateProduitFactureClientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBonComptoiresTable extends Migration
      */
     public function up()
     {
-        Schema::create('bon_comptoires', function (Blueprint $table) {
+        Schema::create('produit_facture_clients', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateBonComptoiresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bon_comptoires');
+        Schema::dropIfExists('produit_facture_clients');
     }
 }

@@ -13,4 +13,8 @@ class Famille extends Model
     protected $hidden =[
 
     ];
+
+    public function articles (){
+        return $this->hasMany('App\Article');
+    }
 }

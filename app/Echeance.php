@@ -15,4 +15,16 @@ class Echeance extends Model
     protected $hidden =[
 
     ];
+
+    public function client()
+    {
+        return $this->belongsTo('App\Client');
+    }
+
+    public function fournisseur()
+    {
+        return $this->belongsTo('App\Fournisseur');
+    }
+
+
 }
