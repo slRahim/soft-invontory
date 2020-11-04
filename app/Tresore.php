@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Tresore extends Model
 {
     protected $fillable = [
-        'code_caisse' ,'solde_init', 'solde' , 'montant_sortie' , 'montant_entre',
+        'code_caisse' ,'solde_init', 'solde' , 'montant_sortie'
+        , 'montant_entre',
     ];
 
     protected $hidden =[

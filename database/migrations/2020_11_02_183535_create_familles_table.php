@@ -15,6 +15,10 @@ class CreateFamillesTable extends Migration
     {
         Schema::create('familles', function (Blueprint $table) {
             $table->id();
+            $table->string('code_famille',255)->unique();
+            $table->string('libelle',255)->unique();
+            $table->double('pourcentage_marge1')->nullable();
+            $table->double('pourcentage_marge2')->nullable();
             $table->timestamps();
         });
     }

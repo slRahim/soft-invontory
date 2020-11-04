@@ -15,6 +15,11 @@ class CreateTresoresTable extends Migration
     {
         Schema::create('tresores', function (Blueprint $table) {
             $table->id();
+            $table->string('code_caisse',255)->unique();
+            $table->double('solde_init');
+            $table->double('solde')->nullable();
+            $table->double('montant_sortie')->nullable();
+            $table->double('montant_entre')->nullable();
             $table->timestamps();
         });
     }

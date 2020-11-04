@@ -15,6 +15,17 @@ class CreateVerssementClientsTable extends Migration
     {
         Schema::create('verssement_clients', function (Blueprint $table) {
             $table->id();
+            $table->string('code_verssement',255)->unique();
+            $table->dateTime('date');
+            $table->string('modalite',255)->nullable();
+            $table->string('objet',255);
+            $table->double('montant');
+            $table->foreignId('client_id')->constrained('clients')
+                                                ->cascadeOnUpdate()
+                                                ->nullOnDelete();
+            $table->foreignId('tresore_id')->constrained('tresores')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
             $table->timestamps();
         });
     }

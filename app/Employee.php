@@ -8,7 +8,7 @@ class Employee extends Model
 {
     protected $fillable = [
         'code_emp' , 'nom' , 'adresse' , 'ville',
-        'mobile1', 'mobile2' , 'email' ,
+        'mobile1', 'mobile2' , 'email' , 'nombre_absence',
         'salaire' , 'dernier_acompte' , 'solde' , 'date_paiement'
     ];
 

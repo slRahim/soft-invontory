@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class FactureFournisseur extends Model
 {
     protected $fillable = [
-        'code_facture' , 'date' , 'heur' ,'fournissuer_id' ,
-        'code_article' , 'qte_article' , 'prix_unite' , 'total_ttc' ,
-        'payer' , 'verssement' , 'reste' , 'type_facture',
+        'code_facture' , 'date' ,'fournisseur_id' ,
+         'total_ttc' , 'payer' , 'verssement' ,
+        'reste' , 'type_facture',
     ];
 
     protected $hidden =[

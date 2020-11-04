@@ -11,7 +11,7 @@ class Fournisseur extends Model
         'adresse', 'ville' , 'code_postale',
         'telephone1', 'telephone2','mobile1','mobile2',
         'email' ,
-        'credit' , 'dernier_verssement', 'chifreAffaire'
+        'credit' , 'dernier_verssement', 'chifre_affaire'
     ];
 
     protected $hidden =[

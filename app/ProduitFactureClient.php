@@ -8,7 +8,8 @@ class ProduitFactureClient extends Model
 {
     protected $fillable = [
         'article_id' ,'facture_client_id' ,
-        'qte_article' ,'colis', 'prix_unite' , 'montant', 'marge' ,
+        'qte_vendus' ,'colis', 'prix_unite_vendus' ,
+        'montant_vendus', 'marge_vendus' ,
     ];
 
     protected $hidden =[

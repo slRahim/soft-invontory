@@ -15,6 +15,18 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->string('code_emp',255)->unique();
+            $table->string('nom',255);
+            $table->string('adresee',255);
+            $table->string('ville');
+            $table->string('mobile1',255);
+            $table->string('mobile2',255)->nullable();
+            $table->string('email',255)->nullable();
+            $table->double('salaire');
+            $table->double('dernier_acompte')->nullable();
+            $table->double('solde')->nullable();
+            $table->date('date_paiement');
+            $table->integer('nombre_absence')->nullable();
             $table->timestamps();
         });
     }

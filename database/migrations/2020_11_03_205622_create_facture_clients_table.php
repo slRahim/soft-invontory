@@ -15,6 +15,16 @@ class CreateFactureClientsTable extends Migration
     {
         Schema::create('facture_clients', function (Blueprint $table) {
             $table->id();
+            $table->string('code_facture',255)->unique();
+            $table->dateTime('date');
+            $table->double('total_ttc');
+            $table->integer('payer');
+            $table->double('verssement')->nullable();
+            $table->double('reste');
+            $table->string('type_facture',255);
+            $table->foreignId('client_id')->constrained('clients')
+                                                ->nullOnDelete()
+                                                ->cascadeOnUpdate();
             $table->timestamps();
         });
     }

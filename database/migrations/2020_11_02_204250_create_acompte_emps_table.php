@@ -15,6 +15,17 @@ class CreateAcompteEmpsTable extends Migration
     {
         Schema::create('acompte_emps', function (Blueprint $table) {
             $table->id();
+            $table->string('code_acompte',255)->unique();
+            $table->dateTime('date');
+            $table->string('objet',255);
+            $table->string('modalite',255)->nullable();
+            $table->double('montant');
+            $table->foreignId('emp_id')->constrained('employees')
+                                            ->cascadeOnUpdate()
+                                            ->nullOnDelete();
+            $table->foreignId('tresore_id')->constrained('tresores')
+                                            ->cascadeOnUpdate()
+                                            ->nullOnDelete();
             $table->timestamps();
         });
     }
