@@ -22,11 +22,10 @@ class CreateFactureClientsTable extends Migration
             $table->double('verssement')->nullable();
             $table->double('reste');
             $table->string('type_facture',255);
-            $table->foreignId('client_id')->constrained('clients')
-                                                ->nullOnDelete()
-                                                ->cascadeOnUpdate();
             $table->timestamps();
         });
+
+
     }
 
     /**

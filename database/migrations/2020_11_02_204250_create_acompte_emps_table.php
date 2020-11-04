@@ -20,14 +20,9 @@ class CreateAcompteEmpsTable extends Migration
             $table->string('objet',255);
             $table->string('modalite',255)->nullable();
             $table->double('montant');
-            $table->foreignId('emp_id')->constrained('employees')
-                                            ->cascadeOnUpdate()
-                                            ->nullOnDelete();
-            $table->foreignId('tresore_id')->constrained('tresores')
-                                            ->cascadeOnUpdate()
-                                            ->nullOnDelete();
             $table->timestamps();
         });
+
     }
 
     /**

@@ -32,14 +32,10 @@ class CreateArticlesTable extends Migration
             $table->double('pourcentage_marge2')->nullable();
             $table->double('marge_min');
             $table->double('pourcentage_marge_min');
-            $table->foreignId('stock_id')->constrained('stocks')
-                                                ->nullOnDelete()
-                                                ->cascadeOnUpdate();
-            $table->foreignId('famille_id')->constrained('familles')
-                                                ->nullOnDelete()
-                                                ->cascadeOnUpdate();
             $table->timestamps();
         });
+//
+
     }
 
     /**

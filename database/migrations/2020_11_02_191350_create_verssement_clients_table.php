@@ -20,14 +20,10 @@ class CreateVerssementClientsTable extends Migration
             $table->string('modalite',255)->nullable();
             $table->string('objet',255);
             $table->double('montant');
-            $table->foreignId('client_id')->constrained('clients')
-                                                ->cascadeOnUpdate()
-                                                ->nullOnDelete();
-            $table->foreignId('tresore_id')->constrained('tresores')
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
             $table->timestamps();
         });
+
+
     }
 
     /**

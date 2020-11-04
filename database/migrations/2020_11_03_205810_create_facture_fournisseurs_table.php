@@ -22,11 +22,10 @@ class CreateFactureFournisseursTable extends Migration
             $table->double('verssement')->nullable();
             $table->double('reste');
             $table->string('type_facture',255);
-            $table->foreignId('fournisseur_id')->constrained('fournisseurs')
-                                                    ->nullOnDelete()
-                                                    ->cascadeOnUpdate();
             $table->timestamps();
         });
+
+
     }
 
     /**

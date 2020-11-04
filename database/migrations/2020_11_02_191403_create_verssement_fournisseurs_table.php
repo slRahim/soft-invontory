@@ -20,14 +20,10 @@ class CreateVerssementFournisseursTable extends Migration
             $table->string('modalite',255)->nullable();
             $table->string('objet',255);
             $table->double('montant');
-            $table->foreignId('fournisseur_id')->constrained('fournisseurs')
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
-            $table->foreignId('tresore_id')->constrained('tresores')
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
             $table->timestamps();
         });
+
+
     }
 
     /**

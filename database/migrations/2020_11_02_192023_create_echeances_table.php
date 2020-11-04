@@ -21,16 +21,10 @@ class CreateEcheancesTable extends Migration
             $table->date('date');
             $table->string('observation',255)->nullable();
             $table->integer('etat')->default(1);
-            $table->foreignId('client_id')->nullable()
-                                                ->constrained('clients')
-                                                ->nullOnDelete()
-                                                ->cascadeOnUpdate();
-            $table->foreignId('fournisseur_id')->nullable()
-                                                ->constrained('fournisseurs')
-                                                ->nullOnDelete()
-                                                ->cascadeOnUpdate();
             $table->timestamps();
         });
+
+
     }
 
     /**
