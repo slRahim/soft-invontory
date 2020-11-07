@@ -17,6 +17,18 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('admin', function () {
+Route::get('dashboard', function () {
     return view('dashboard');
+});
+Route::get('clients', function () {
+    return view('listing_rh',['from'=>'clients']);
+});
+Route::get('fournisseurs', function () {
+    return view('listing_rh',['from'=>'fournissuer']);
+});
+Route::get('actionnaires', function () {
+    return view('listing_rh',['from'=>'actionnaires']);
+});
+Route::get('employees', function () {
+    return view('listing_rh',['from'=>'employees']);
 });

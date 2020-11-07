@@ -26,7 +26,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link active">
+                    <a href="/dashboard" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             لوحة التحكم
@@ -82,13 +82,13 @@
                 </li>
                 <li class="nav-header text-bold text-center">الموارد البشرية</li>
                 <li class="nav-item">
-                    <a href="https://adminlte.io/docs/3.0" class="nav-link">
+                    <a href="/employees" class="nav-link">
                         <i class="fas fa-users"></i>
                         <p>العمال</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://adminlte.io/docs/3.0" class="nav-link">
+                    <a href="/actionnaires" class="nav-link">
                         <i class="fas fa-handshake"></i>
                         <p>الشركاء</p>
                     </a>
@@ -103,13 +103,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="/clients" class="nav-link">
                                 <i class="fas fa-people-carry"></i>
                                 <p>الزبائن</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                            <a href="/fournisseurs" class="nav-link">
                                 <i class="fas fa-truck-loading"></i>
                                 <p>الموردين</p>
                             </a>
