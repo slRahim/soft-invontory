@@ -33,7 +33,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header text-bold text-right">الفواتير</li>
+                <li class="nav-header text-bold text-center">الفواتير</li>
                 <li class="nav-item has-treeview ">
                     <a href="#" class="nav-link ">
                         <i class="fas fa-cart-plus"></i>
@@ -80,7 +80,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-header text-bold text-right">الموارد البشرية</li>
+                <li class="nav-header text-bold text-center">الموارد البشرية</li>
                 <li class="nav-item">
                     <a href="https://adminlte.io/docs/3.0" class="nav-link">
                         <i class="fas fa-users"></i>
@@ -117,7 +117,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-header text-bold text-right">المخزن</li>
+                <li class="nav-header text-bold text-center">المخزن</li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
                         <i class="fas fa-plus"></i>
@@ -150,7 +150,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-header text-bold text-right">قسم المحاسبة</li>
+                <li class="nav-header text-bold text-center">قسم المحاسبة</li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="fas fa-calendar-alt"></i>

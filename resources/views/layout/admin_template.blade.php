@@ -12,7 +12,9 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/bower_components/admin-lte/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/bower_components/admin-lte/dist/css/adminlte.css">
+    <!-- bootstrap css rtl -->
+    <link rel="stylesheet" href="/bower_components/admin-lte/dist/css/bootstrap-rtl.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="/bower_components/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
@@ -27,6 +29,8 @@
     <link rel="stylesheet" href="/bower_components/admin-lte/plugins/jqvmap/jqvmap.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- custom css rtl -->
+    <link rel="stylesheet" href="/bower_components/admin-lte/dist/css/custom.css">
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -35,16 +39,14 @@
     <!-- Navbar -->
     @include('/layout/header')
 
-
     <!-- Main Sidebar Container -->
     @include('/layout/sidebar')
-
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            @yield('header')
+            @yield('content-head')
             <!-- /.container-fluid -->
         </section>
         <!-- /.content-header -->
@@ -56,16 +58,10 @@
         <!-- /.content -->
     </div>
 
-
-    <!-- Control Sidebar -->
-    @include('/layout/sidecontrol')
-
-
     <!-- Main Footer -->
     @include('/layout/footer')
 
 </div>
-
 
 <!-- REQUIRED SCRIPTS -->
 
@@ -79,6 +75,7 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="/bower_components/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/bower_components/admin-lte/plugins/bootstrap/js/bootstrap-rtl.min.js"></script>
 <!-- ChartJS -->
 <script src="/bower_components/admin-lte/plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->

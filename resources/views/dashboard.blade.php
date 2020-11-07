@@ -1,10 +1,10 @@
 @extends('/layout/admin_template')
 
-@section('header')
+@section('content-head')
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Dashboard</h1>
+                <h1 class="m-0 text-dark">لوحة التحكم</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -87,21 +87,19 @@
             <section class="col-lg-7 connectedSortable">
                 <!-- Custom tabs (Charts with tabs)-->
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">
+                    <div class="card-header d-flex p-0">
+                        <h3 class="card-title p-3">
                             <i class="fas fa-chart-pie mr-1"></i>
                             Sales
                         </h3>
-                        <div class="card-tools">
-                            <ul class="nav nav-pills ml-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <ul class="nav nav-pills ml-auto p-2">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
+                            </li>
+                        </ul>
                     </div><!-- /.card-header -->
                     <div class="card-body">
                         <div class="tab-content p-0">
@@ -525,11 +523,34 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        <canvas class="chart" id="line-chart" style="height: 250px;"></canvas>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer bg-transparent">
+                        <div class="row">
+                            <div class="col-4 text-center">
+                                <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
+                                       data-fgColor="#39CCCC">
 
+                                <div class="text-white">Mail-Orders</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-4 text-center">
+                                <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
+                                       data-fgColor="#39CCCC">
+
+                                <div class="text-white">Online</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-4 text-center">
+                                <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
+                                       data-fgColor="#39CCCC">
+
+                                <div class="text-white">In-Store</div>
+                            </div>
+                            <!-- ./col -->
+                        </div>
+                        <!-- /.row -->
                     </div>
                     <!-- /.card-footer -->
                 </div>
@@ -547,9 +568,9 @@
                         <div class="card-tools">
                             <!-- button with a dropdown -->
                             <div class="btn-group">
-                                <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
+                                <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
                                     <i class="fas fa-bars"></i></button>
-                                <div class="dropdown-menu" role="menu">
+                                <div class="dropdown-menu float-right" role="menu">
                                     <a href="#" class="dropdown-item">Add new event</a>
                                     <a href="#" class="dropdown-item">Clear events</a>
                                     <div class="dropdown-divider"></div>
