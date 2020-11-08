@@ -30,7 +30,12 @@ class RessourceHumaineControlleur extends Controller
    public function getActionnaires(){
        $actionnaires=Actionnaire::all();
 
-       return route();
+       $data =[
+           'from_title'=>'الشركاء',
+           'actionnaires'=>$actionnaires,
+           'from'=>'actionnaire'
+       ];
+       return view('listing_rh',$data);
    }
    public function dellActionnaire($id){
        Actionnaire::destroy($id);
@@ -53,12 +58,18 @@ class RessourceHumaineControlleur extends Controller
     public function getEmployee($id){
        $employee=Employee::find($id);
 
-       return route();
+
+       return view('profileEmployee');
     }
     public function getEmployees(){
        $employees =  Employee::all();
 
-       return route();
+       $data =[
+          'from_title'=>'العمال',
+          'employees'=>$employees,
+           'from'=>'employee'
+       ];
+       return view('listing_rh',$data);
     }
     public function dellEmployee($id){
        Employee::destroy($id);

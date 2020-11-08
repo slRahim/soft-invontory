@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,15 +21,8 @@ Route::get('/', function () {
 Route::get('dashboard', function () {
     return view('dashboard');
 });
-Route::get('clients', function () {
-    return view('listing_rh',['from'=>'clients']);
-});
-Route::get('fournisseurs', function () {
-    return view('listing_rh',['from'=>'fournissuer']);
-});
-Route::get('actionnaires', function () {
-    return view('listing_rh',['from'=>'actionnaires']);
-});
-Route::get('employees', function () {
-    return view('listing_rh',['from'=>'employees']);
-});
+Route::get('clients','ClientControlleur@getClients');
+Route::get('fournisseurs', 'FournisseurControlleur@getFournisseurs');
+Route::get('actionnaires', 'RessourceHumaineControlleur@getActionnaires');
+Route::get('employees', 'RessourceHumaineControlleur@getEmployees');
+Route::get('employee/{id}', 'RessourceHumaineControlleur@getEmployee');
