@@ -60,13 +60,25 @@ class StockArticleFamilleControlleur extends Controller
     }
     public function getArticle($id){
         $article = Article::find($id);
-
-        return route();
+        $articles_fam =Article::all()->get(5);
+        $data=[
+            'from_title'=>'تعديل منتج',
+            'from'=>'edit article',
+            'article'=>$article,
+            'articles_fam'=>$articles_fam
+        ];
+        return view('editArticle',$data);
     }
     public function getArticles(){
         $articles= Article::all();
 
-        return view('listingArticle');
+        $data=[
+            'from_title'=>'قائمة المنتجات',
+            'from'=>'article',
+            'articles'=>$articles
+
+        ];
+        return view('listingArticle',$data);
     }
     public function dellArticle($id){
         Article::destroy($id);

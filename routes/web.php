@@ -42,3 +42,9 @@ Route::get('article/add',function (){
     return view('addArticle');
 });
 Route::get('articles','StockArticleFamilleControlleur@getArticles');
+Route::get('article/{id}','StockArticleFamilleControlleur@getArticle');
+Route::post('article/{id}','StockArticleFamilleControlleur@editArticle');
+
+Route::get('familles',function (){
+    return view('familleStock');
+});
