@@ -23,67 +23,351 @@
             <div class="col-md-12">
                 <div class="card card-danger collapsed-card">
                     <div class="card-header">
-                        <div class="card-tools">
+                        <div class="card-tools float-right">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
                             </button>
                         </div>
-                        <h3 class="card-title">إضافة جديدة</h3>
+                        <h3 class="card-title float-left">إضافة جديدة</h3>
                     </div>
                     <div class="card-body">
                         @if($from === 'actionnaire')
-                            <form action="" method="post">
-                            <div class="form-group">
-                                <label>رمز الشريك</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="far fa-code-alt"></i></span>
+                            <form action="actionnaire" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <label>الإسم و اللقب</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" name="act_nom" required>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                    <!-- /.input group -->
                                 </div>
-                                <!-- /.input group -->
-                            </div>
-                            <div class="form-group">
-                                <label>الإسم و اللقب</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="far fa-user-alt"></i></span>
+                                <div class="form-group">
+                                    <label>العنوان</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" name="act_adresse" required>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                    <!-- /.input group -->
                                 </div>
-                                <!-- /.input group -->
-                            </div>
-                            <div class="form-group">
-                                <label>العنوان</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="far fa-home-alt"></i></span>
+                                <div class="form-group">
+                                    <label>رقم الموبايل</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                        </div>
+                                        <input type="tel" class="form-control" name="act_mobile1" required>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                    <!-- /.input group -->
                                 </div>
-                                <!-- /.input group -->
-                            </div>
-                            <div class="form-group">
-                                <label>رقم الموبايل</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="far fa-phone-alt"></i></span>
+                                <div class="form-group">
+                                    <label>نسبة المشاركة(بالأرقام)</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-percentage"></i></span>
+                                        </div>
+                                        <input type="number" class="form-control" name="act_pourcentage" required>
                                     </div>
-                                    <input type="tel" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                    <!-- /.input group -->
                                 </div>
-                                <!-- /.input group -->
-                            </div>
-                            <div class="form-group">
-                                <label>نسبة المشاركة</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="far fa-percentage-alt"></i></span>
-                                    </div>
-                                    <input type="number" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
-                                </div>
-                                <!-- /.input group -->
-                            </div>
+                                <button type="submit" class="btn btn-success">تأكيد</button>
+                                <button type="reset" class="btn btn-secondary float-right">إلغاء</button>
                         </form>
                         @endif
+                        @if($from === 'employee')
+                            <form action="employee" method="post">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label>الإسم و اللقب</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" name="emp_nom" required>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>العنوان</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="emp_adresse" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>المدينة</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-city"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="emp_ville" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>رقم الموبايل 1</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" name="emp_mobile1" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>رقم الموبايل 2</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" name="emp_mobile2">
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>الراتب الشهري (بالأرقام)</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                                    </div>
+                                                    <input type="number" class="form-control" name="emp_salaire" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>تاريخ إستلام المرتب</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control" name="emp_date_paiement" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-success">تأكيد</button>
+                                    <button type="reset" class="btn btn-secondary float-right">إلغاء</button>
+                                </form>
+                        @endif
+                        @if($from === 'client')
+                            <form action="client" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <label>الإسم و اللقب</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" name="client_nom" required>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>العنوان</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" name="client_adresse" required>
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>المدينة</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-city"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" name="client_ville" required>
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>رقم الموبايل 1</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                </div>
+                                                <input type="tel" class="form-control" name="client_mobile1" required>
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>رقم الموبايل 2</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                </div>
+                                                <input type="tel" class="form-control" name="client_mobile2">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>البريد الإلكتروني</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                                </div>
+                                                <input type="email" class="form-control" name="client_email" >
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>الرمز البريدي</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-shipping-fast"></i></span>
+                                                </div>
+                                                <input type="number" class="form-control" name="client_code_postale" >
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-success">تأكيد</button>
+                                <button type="reset" class="btn btn-secondary float-right">إلغاء</button>
+                            </form>
+                        @endif
+                        @if($from === 'fournisseur')
+                            <form action="fournisseur" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <label>الإسم و اللقب</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" name="fournisseur_nom" required>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>العنوان</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" name="fournisseur_adresse" required>
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>المدينة</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-city"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" name="fournisseur_ville" required>
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>رقم الموبايل 1</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                </div>
+                                                <input type="tel" class="form-control" name="fournisseur_mobile1" required>
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>رقم الموبايل 2</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                </div>
+                                                <input type="tel" class="form-control" name="fournisseur_mobile2">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>البريد الإلكتروني</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                                </div>
+                                                <input type="email" class="form-control" name="fournisseur_email" >
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>الرمز البريدي</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-shipping-fast"></i></span>
+                                                </div>
+                                                <input type="number" class="form-control" name="fournisseur_code_postale" >
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-success">تأكيد</button>
+                                <button type="reset" class="btn btn-secondary float-right">إلغاء</button>
+                            </form>
+                        @endif
+                    </div>
+                    <div class="card-footer">
+                        <h6 class="float-left">الرجاء إدخال كل البيانات (لإضافة بيانات متقدمة الرجاء زيارة حساب العميل).</h6>
                     </div>
                     <!-- /.card-body -->
                 </div>

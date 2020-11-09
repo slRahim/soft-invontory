@@ -119,7 +119,7 @@
 
                 <li class="nav-header text-bold text-center">المخزن</li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="/article/add" class="nav-link">
                         <i class="fas fa-plus"></i>
                         <p>
                             منتج جديد
@@ -136,7 +136,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/mailbox/mailbox.html" class="nav-link">
+                            <a href="/articles" class="nav-link">
                                 <i class="fas fa-th-list"></i>
                                 <p>قائمة المنتجات</p>
                             </a>

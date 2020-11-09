@@ -66,7 +66,7 @@ class StockArticleFamilleControlleur extends Controller
     public function getArticles(){
         $articles= Article::all();
 
-        return route();
+        return view('listingArticle');
     }
     public function dellArticle($id){
         Article::destroy($id);

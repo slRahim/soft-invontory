@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Actionnaire;
 use App\Employee;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 
 
 class RessourceHumaineControlleur extends Controller
 {
    public function addActionnaire(Request $request){
-       $actionnaire = new Actionnaire();
-
-       $actionnaire->save();
-       return route();
+//       $actionnaire = new Actionnaire();
+//
+//       $actionnaire->save();
+       return route('actionnaires');
    }
    public function editActionnaire(Request $request,$id){
        $actionnaire = Actionnaire::find($id);
@@ -44,10 +44,10 @@ class RessourceHumaineControlleur extends Controller
    }
 //    ****************************************************************************************
     public function addEmployee(Request $request){
-       $employee = new Employee();
-
-       $employee->save();
-       return route();
+//       $employee = new Employee();
+//
+//       $employee->save();
+       return route('employees');
     }
     public function editEmployee(Request $request , $id){
        $employee = Employee::find($id);
