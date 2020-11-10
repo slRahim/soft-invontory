@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Famille extends Model
 {
     protected $fillable = [
-        'code_famille', 'libelle','pourcentage_marge1',
+        'id','code_famille', 'libelle','pourcentage_marge1',
         'pourcentage_marge2',
     ];
 

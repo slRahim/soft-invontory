@@ -16,8 +16,8 @@ class AddForeignkeyAcompteEmpsTable extends Migration
 
         Schema::table('acompte_emps',function (Blueprint $table){
             $table->foreignId('emp_id')->constrained('employees');
-            $table->foreignId('tresore_id')->constrained('tresores');
-        });    }
+        });
+    }
 
     /**
      * Reverse the migrations.

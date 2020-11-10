@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StockArticleFamilleControlleur as stockControlleur;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,13 +37,20 @@ Route::post('employee', 'RessourceHumaineControlleur@addEmployee');
 Route::get('employee/{id}', 'RessourceHumaineControlleur@getEmployee');
 
 Route::get('article/add',function (){
-
-    return view('addArticle');
+    $data=[
+        'familles'=>\App\Famille::all(),
+        'stocks'=>\App\Stock::all(),
+    ];
+    return view('addArticle',$data);
 });
+Route::post('article','StockArticleFamilleControlleur@addArticle');
 Route::get('articles','StockArticleFamilleControlleur@getArticles');
 Route::get('article/{id}','StockArticleFamilleControlleur@getArticle');
 Route::post('article/{id}','StockArticleFamilleControlleur@editArticle');
 
-Route::get('familles',function (){
-    return view('familleStock');
-});
+Route::get('familles','StockArticleFamilleControlleur@getFamillesStocks');
+Route::post('famille','StockArticleFamilleControlleur@addFamille');
+Route::get('famille/dell/{id}','StockArticleFamilleControlleur@dellFamille');
+
+Route::post('stock','StockArticleFamilleControlleur@addStock');
+Route::get('stock/dell/{id}','StockArticleFamilleControlleur@dellStock');

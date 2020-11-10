@@ -8,7 +8,7 @@ class AcompteEmp extends Model
 {
     protected $fillable = [
         'code_acompte' , 'date' , 'emp_id',
-        'modalite' , 'montant' , 'objet' , 'tresore_id'
+        'modalite' , 'montant' , 'objet' ,
     ];
 
     protected $hidden =[
@@ -20,8 +20,5 @@ class AcompteEmp extends Model
         return $this->belongsTo('App\Employee');
     }
 
-    public function teresore(){
-        return $this->belongsTo('App\Tresore');
-    }
 
 }

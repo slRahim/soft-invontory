@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Stock extends Model
 {
     protected $fillable = [
-        'code_stock' , 'adresse' ,
+        'id','code_stock' , 'adresse' ,
     ];
 
     protected $hidden =[

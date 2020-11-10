@@ -15,7 +15,6 @@ class AddForeignkeyVerssementClientsTable extends Migration
     {
         Schema::table('verssement_clients',function (Blueprint $table){
             $table->foreignId('client_id')->constrained('clients');
-            $table->foreignId('tresore_id')->constrained('tresores');
         });
     }
 

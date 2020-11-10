@@ -15,7 +15,6 @@ class AddForeignkeyVerssementFournisseursTable extends Migration
     {
         Schema::table('verssement_fournisseurs',function (Blueprint $table){
             $table->foreignId('fournisseur_id')->constrained('fournisseurs');
-            $table->foreignId('tresore_id')->constrained('tresores');
         });
     }
 

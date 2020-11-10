@@ -4,12 +4,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>&&</h1>
+                <h1>{{$from_title}}</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">المكتب</a></li>
-                    <li class="breadcrumb-item active">&&</li>
+                    <li class="breadcrumb-item active">{{$from_title}}</li>
                 </ol>
             </div>
         </div>
@@ -19,7 +19,8 @@
     <div class="row">
         <!-- /.col add stock -->
         <div class="col-md-6">
-            <form action="" method="post">
+            <form action="stock" method="post">
+                @csrf
             <div class="card card-danger collapsed-card">
                 <div class="card-header">
                     <h3 class="card-title float-left">مستودع جديد</h3>
@@ -52,7 +53,8 @@
 
         <!-- /.col add famille-->
         <div class="col-md-6">
-            <form action="" method="post">
+            <form action="/famille" method="post">
+                @csrf
             <div class="card card-indigo collapsed-card">
                 <div class="card-header">
                     <h3 class="card-title float-left">إضافة فئة جديدة </h3>
@@ -120,16 +122,18 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Win 95+</td>
-                            <td> 4</td>
-                            <td class="text-left py-0 align-middle">
-                                <div class="btn-group btn-group-sm">
-                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
+                        @foreach($stocks as $stock)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$stock->code_stock}}</td>
+                                <td>{{$stock->adresse}}</td>
+                                <td class="text-left py-0 align-middle">
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="stock/dell/{{$stock->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -153,18 +157,21 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Internet Explorer 4.0</td>
-                            <td>Win 95+</td>
-                            <td> 4</td>
-                            <td>55</td>
-                            <td class="text-left py-0 align-middle">
-                                <div class="btn-group btn-group-sm">
-                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
+                        @foreach($familles as $famille)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$famille->code_famille}}</td>
+                                <td>{{$famille->libelle}}</td>
+                                <td>{{$famille->pourcentage_marge1}}</td>
+                                <td>{{$famille->pourcentage_marge2}}</td>
+                                <td class="text-left py-0 align-middle">
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="famille/dell/{{$famille->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+
                         </tbody>
                     </table>
                 </div>

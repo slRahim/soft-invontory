@@ -16,7 +16,7 @@
     </div>
 @endsection
 @section('content')
-    <form action="article/add" method="post">
+    <form id="id_form">
         @csrf
         <div class="row">
         <div class="col-md-6">
@@ -35,7 +35,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-barcode"></i></span>
                             </div>
-                            <input type="text" class="form-control" name="art_codebar" required>
+                            <input type="text" class="form-control" name="art_code_bare" required>
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -110,11 +110,9 @@
                                         <span class="input-group-text"><i class="fas fa-th-list"></i></span>
                                     </div>
                                     <select class="form-control" name="art_famille">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
+                                        @foreach($familles as $famille)
+                                            <option selected value="{{$famille->id}}" >{{$famille->libelle}} ({{$famille->code_famille}})</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <!-- /.input group -->
@@ -128,11 +126,9 @@
                                         <span class="input-group-text"><i class="fas fa-th-list"></i></span>
                                     </div>
                                     <select class="form-control" name="art_stock">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
+                                        @foreach($stocks as $stock)
+                                            <option selected value="{{$stock->id}}">{{$stock->code_stock}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <!-- /.input group -->
@@ -161,7 +157,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                             </div>
-                            <input type="number" class="form-control" name="art_prix_achat" >
+                            <input type="number" class="form-control" name="art_prix_achat" id="p_achat" required>
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -173,7 +169,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="art_prix_vente_min" >
+                                    <input type="number" class="form-control" name="art_prix_vente_min" id="min_vente" required>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -185,7 +181,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-coins"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="art_marge_min" >
+                                    <input type="number" class="form-control" name="art_marge_min" id="min_marge" required>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -197,7 +193,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-percentage"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="art_pourcentage_marge_min" >
+                                    <input type="number" class="form-control" name="art_pourcentage_marge_min" id="min_marge_pourcentage" required>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -211,7 +207,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="art_prix_vente1" >
+                                    <input type="number" class="form-control" name="art_prix_vente1" id="vente1">
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -223,7 +219,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-coins"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="art_marge1" >
+                                    <input type="number" class="form-control" name="art_marge1" id="marge1">
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -235,7 +231,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-percentage"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="art_pourcentage_marge1" >
+                                    <input type="number" class="form-control" name="art_pourcentage_marge1" id="marge1_pourcentage">
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -249,7 +245,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="art_prix_vente2" >
+                                    <input type="number" class="form-control" name="art_prix_vente2" id="vente2">
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -261,7 +257,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-coins"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="art_marge2" >
+                                    <input type="number" class="form-control" name="art_marge2" id="marge2">
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -273,7 +269,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-percentage"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="art_pourcentage_marge2" >
+                                    <input type="number" class="form-control" name="art_pourcentage_marge2" id="marge2_pourcentage">
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -292,4 +288,24 @@
         </div>
     </div>
     </form>
+@endsection
+@section('additionel script')
+    <script>
+        $('#id_form').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url:'/article',
+                method:'POST',
+                data:$(this).serialize(),
+                success:function (result) {
+                    if (result.success == true){
+                        console.log(true)
+                    } else {
+                        console.log(false)
+                    }
+                },
+            });
+        });
+
+    </script>
 @endsection
