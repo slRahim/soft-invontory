@@ -23,18 +23,22 @@ Route::get('dashboard', function () {
 Route::get('clients','ClientControlleur@getClients');
 Route::get('client/{id}','ClientControlleur@getClient');
 Route::post('client','ClientControlleur@addClient');
+Route::get('client/dell/{id}','ClientControlleur@dellClient');
 
 Route::get('fournisseurs', 'FournisseurControlleur@getFournisseurs');
 Route::get('fournisseur/{id}', 'FournisseurControlleur@getFournisseur');
 Route::post('fournisseur', 'FournisseurControlleur@addFournisseur');
+Route::get('fournisseur/dell/{id}', 'FournisseurControlleur@dellFournisseur');
 
 Route::get('actionnaires', 'RessourceHumaineControlleur@getActionnaires');
 Route::post('actionnaire', 'RessourceHumaineControlleur@addActionnaire');
 Route::get('actionnaire/{id}', 'RessourceHumaineControlleur@getActionnaire');
+Route::get('actionnaire/dell/{id}', 'RessourceHumaineControlleur@dellActionnaire');
 
 Route::get('employees', 'RessourceHumaineControlleur@getEmployees');
 Route::post('employee', 'RessourceHumaineControlleur@addEmployee');
 Route::get('employee/{id}', 'RessourceHumaineControlleur@getEmployee');
+Route::get('employee/dell/{id}', 'RessourceHumaineControlleur@dellEmployee');
 
 Route::get('article/add',function (){
     $data=[

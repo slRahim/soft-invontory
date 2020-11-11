@@ -139,6 +139,7 @@
                                                     <input type="tel" class="form-control" name="emp_mobile2">
                                                 </div>
                                                 <!-- /.input group -->
+                                                <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
                                             </div>
                                         </div>
                                     </div>
@@ -235,6 +236,7 @@
                                                 <input type="tel" class="form-control" name="client_mobile2">
                                             </div>
                                             <!-- /.input group -->
+                                            <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
                                         </div>
                                     </div>
                                 </div>
@@ -249,6 +251,7 @@
                                                 <input type="email" class="form-control" name="client_email" >
                                             </div>
                                             <!-- /.input group -->
+                                            <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12">
@@ -261,6 +264,7 @@
                                                 <input type="number" class="form-control" name="client_code_postale" >
                                             </div>
                                             <!-- /.input group -->
+                                            <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
                                         </div>
                                     </div>
                                 </div>
@@ -331,6 +335,7 @@
                                                 <input type="tel" class="form-control" name="fournisseur_mobile2">
                                             </div>
                                             <!-- /.input group -->
+                                            <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
                                         </div>
                                     </div>
                                 </div>
@@ -345,6 +350,7 @@
                                                 <input type="email" class="form-control" name="fournisseur_email" >
                                             </div>
                                             <!-- /.input group -->
+                                            <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12">
@@ -357,6 +363,7 @@
                                                 <input type="number" class="form-control" name="fournisseur_code_postale" >
                                             </div>
                                             <!-- /.input group -->
+                                            <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
                                         </div>
                                     </div>
                                 </div>
@@ -403,7 +410,7 @@
                             @if($from === 'employee')
                                 @foreach($employees as $emp)
                                     <tr>
-                                        <td class="text-right py-0 align-middle">
+                                        <td class="text-center py-0 align-middle">
                                             <div class="btn-group btn-group-sm">
                                                 <a href="employee/{{$emp->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
                                                 <a href="employee/dell/{{$emp->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
@@ -419,7 +426,7 @@
                             @if($from === 'actionnaire')
                                 @foreach($actionnaires as $act)
                                     <tr>
-                                        <td class="text-right py-0 align-middle">
+                                        <td class="text-center py-0 align-middle">
                                             <div class="btn-group btn-group-sm">
                                                 <a href="actionnaire/{{$act->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
                                                 <a href="actionnaire/dell/{{$act->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
@@ -435,7 +442,7 @@
                             @if($from === 'client')
                                 @foreach($clients as $client)
                                     <tr>
-                                        <td class="text-right py-0 align-middle">
+                                        <td class="text-center py-0 align-middle">
                                             <div class="btn-group btn-group-sm">
                                                 <a href="client/{{$client->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
                                                 <a href="client/dell/{{$client->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
@@ -453,7 +460,7 @@
                             @if($from === 'fournisseur')
                                 @foreach($fournisseurs as $fournisseur)
                                     <tr>
-                                        <td class="text-right py-0 align-middle">
+                                        <td class="text-center py-0 align-middle">
                                             <div class="btn-group btn-group-sm">
                                                 <a href="fournisseur/{{$fournisseur->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
                                                 <a href="fournisseur/dell/{{$fournisseur->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
@@ -468,20 +475,6 @@
                                     </tr>
                                 @endforeach
                             @endif
-                            <tr>
-                                <td class="text-left py-0 align-middle">
-                                    <div class="btn-group btn-group-sm">
-                                        <a href="employee/1" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                        <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                                    </div>
-                                </td>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0
-                                </td>
-                                <td>Win 95+</td>
-                                <td> 4</td>
-                            </tr>
                             </tbody>
                             <tfoot>
                             <tr>

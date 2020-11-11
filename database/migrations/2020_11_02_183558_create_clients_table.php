@@ -26,9 +26,9 @@ class CreateClientsTable extends Migration
             $table->string('mobile1',255);
             $table->string('mobile2',255)->nullable();
             $table->string('email',255)->nullable();
-            $table->double('credit');
+            $table->double('credit')->nullable()->default(0);
             $table->double('dernier_verssement')->nullable();
-            $table->double('chifre_affaire');
+            $table->double('chifre_affaire')->nullable()->default(0);
             $table->timestamps();
         });
     }

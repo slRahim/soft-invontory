@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Fournisseur ;
+use Illuminate\Support\Facades\DB as DB;
 
 
 class FournisseurControlleur extends Controller
@@ -12,20 +13,47 @@ class FournisseurControlleur extends Controller
 
     public function addFournisseur(Request $request){
         $fournisseur=new Fournisseur();
+        $statement = DB::select("SHOW TABLE STATUS LIKE 'fournisseurs'");
+        $nextId = $statement[0]->Auto_increment;
+        $year=date('Y');
+
+        $fournisseur->code_fournisseur="four$nextId/$year";
+        $fournisseur->nom=$request->fournisseur_nom;
+        $fournisseur->adresse=$request->fournisseur_adresse;
+        $fournisseur->ville=$request->fournisseur_ville;
+        $fournisseur->mobile1=$request->fournisseur_mobile1;
+        $fournisseur->mobile2=$request->fournisseur_mobile2;
+        $fournisseur->email=$request->fournisseur_email;
+        $fournisseur->code_postale=$request->fournisseur_code_postale;
 
         $fournisseur->save();
-        return route();
+        return redirect("/fournisseur/$nextId");
     }
     public function editFournisseur(Request $request , $id){
         $fournisseur=Fournisseur::find($id);
 
-        $fournisseur->save();
-        return route();
+        $fournisseur->nom=$request->fournisseur_nom;
+        $fournisseur->adresse=$request->fournisseur_adresse;
+        $fournisseur->ville=$request->fournisseur_ville;
+        $fournisseur->mobile1=$request->fournisseur_mobile1;
+        $fournisseur->mobile2=$request->fournisseur_mobile2;
+        $fournisseur->email=$request->fournisseur_email;
+        $fournisseur->code_postale=$request->fournisseur_code_postale;
+
+        $result=$fournisseur->save();
+        $data=[
+          'success'=>$result,
+
+        ];
+        return $data;
     }
     public function getFournisseur($id){
         $fournisseur=Fournisseur::find($id);
 
-        return route();
+        $data=[
+            'fournisseur'=>$fournisseur
+        ];
+        return view('profileFournisseur',$data);
     }
     public function getFournisseurs(){
         $fournisseurs=Fournisseur::all();
@@ -39,8 +67,7 @@ class FournisseurControlleur extends Controller
     }
     public function dellFournisseur($id){
         Fournisseur::destroy($id);
-
-        return route();
+        return redirect('/fournisseurs');
     }
 
 }
