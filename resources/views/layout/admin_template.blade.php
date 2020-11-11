@@ -31,6 +31,8 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- custom css rtl -->
     <link rel="stylesheet" href="/bower_components/admin-lte/dist/css/custom.css">
+    <!-- toastr css -->
+    <link rel="stylesheet" href="/bower_components/admin-lte/plugins/toastr/toastr.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -105,6 +107,7 @@
 <script src="/bower_components/admin-lte/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/bower_components/admin-lte/dist/js/demo.js"></script>
+<script src="/bower_components/admin-lte/plugins/toastr/toastr.min.js"></script>
 @yield('additionel script')
 </body>
 </html>

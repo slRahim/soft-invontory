@@ -17,7 +17,9 @@
     </div>
 @endsection
 @section('content')
-    <form action="" method="post">
+    <div id="toast-container" class="toast-top-left"></div>
+    <form id="id_form1">
+        @csrf
     <div class="row">
         <div class="col-md-6">
             <div class="card card-primary">
@@ -30,12 +32,22 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
+                        <label>كود المنتح</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-barcode"></i></span>
+                            </div>
+                            <input type="text" class="form-control" value="{{$article->code_article}}" disabled>
+                        </div>
+                        <!-- /.input group -->
+                    </div>
+                    <div class="form-group">
                         <label>كود بار</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-barcode"></i></span>
                             </div>
-                            <input type="text" class="form-control" name="art_codebar" value="{{$article->code_bare}}" required>
+                            <input type="text" class="form-control" name="art_code_bare" value="{{$article->code_bare}}" required>
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -110,11 +122,13 @@
                                         <span class="input-group-text"><i class="fas fa-th-list"></i></span>
                                     </div>
                                     <select class="form-control" name="art_famille">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
+                                        @foreach($familles as $famille)
+                                            @if($famille->id == $article->famille_id)
+                                                <option selected value="{{$famille->id}}" >{{$famille->libelle}} ({{$famille->code_famille}})</option>
+                                            @else
+                                                <option  value="{{$famille->id}}" >{{$famille->libelle}} ({{$famille->code_famille}})</option>
+                                            @endif
+                                        @endforeach
                                     </select>
                                 </div>
                                 <!-- /.input group -->
@@ -128,11 +142,13 @@
                                         <span class="input-group-text"><i class="fas fa-th-list"></i></span>
                                     </div>
                                     <select class="form-control" name="art_stock">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
+                                        @foreach($stocks as $stock)
+                                            @if($stock->id == $article->stock_id)
+                                                <option selected value="{{$stock->id}}">{{$stock->code_stock}}</option>
+                                            @else
+                                                <option value="{{$stock->id}}">{{$stock->code_stock}}</option>
+                                            @endif
+                                        @endforeach
                                     </select>
                                 </div>
                                 <!-- /.input group -->
@@ -174,16 +190,6 @@
                                 </td>
                             </tr>
                         @endforeach
-                        <tr>
-                            <td>Functional-requirements.docx</td>
-                            <td>49.8005 kb</td>
-                            <td class="text-right py-0 align-middle">
-                                <div class="btn-group btn-group-sm">
-                                    <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -336,4 +342,23 @@
         </div>
     </div>
     </form>
+@endsection
+@section('additionel script')
+    <script>
+        $('#id_form1').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                method:'POST',
+                data:$(this).serialize(),
+                success:function (result) {
+                    if (result.success == true){
+                        toastr.success(result.success_msg);
+                    } else {
+                        toastr.error(result.error_msg);
+                    }
+                },
+            });
+        });
+
+    </script>
 @endsection

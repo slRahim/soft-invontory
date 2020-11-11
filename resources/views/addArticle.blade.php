@@ -16,6 +16,7 @@
     </div>
 @endsection
 @section('content')
+    <div id="toast-container" class="toast-top-left"></div>
     <form id="id_form">
         @csrf
         <div class="row">
@@ -111,7 +112,7 @@
                                     </div>
                                     <select class="form-control" name="art_famille">
                                         @foreach($familles as $famille)
-                                            <option selected value="{{$famille->id}}" >{{$famille->libelle}} ({{$famille->code_famille}})</option>
+                                            <option  value="{{$famille->id}}">{{$famille->libelle}} ({{$famille->code_famille}})</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -127,7 +128,7 @@
                                     </div>
                                     <select class="form-control" name="art_stock">
                                         @foreach($stocks as $stock)
-                                            <option selected value="{{$stock->id}}">{{$stock->code_stock}}</option>
+                                            <option  value="{{$stock->id}}">{{$stock->code_stock}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -288,6 +289,7 @@
         </div>
     </div>
     </form>
+
 @endsection
 @section('additionel script')
     <script>
@@ -299,9 +301,10 @@
                 data:$(this).serialize(),
                 success:function (result) {
                     if (result.success == true){
-                        console.log(true)
+                        $('#id_form')[0].reset();
+                        toastr.success(result.success_msg);
                     } else {
-                        console.log(false)
+                        toastr.error(result.error_msg);
                     }
                 },
             });

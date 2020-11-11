@@ -47,6 +47,7 @@ Route::post('article','StockArticleFamilleControlleur@addArticle');
 Route::get('articles','StockArticleFamilleControlleur@getArticles');
 Route::get('article/{id}','StockArticleFamilleControlleur@getArticle');
 Route::post('article/{id}','StockArticleFamilleControlleur@editArticle');
+Route::get('article/dell/{id}','StockArticleFamilleControlleur@dellArticle');
 
 Route::get('familles','StockArticleFamilleControlleur@getFamillesStocks');
 Route::post('famille','StockArticleFamilleControlleur@addFamille');

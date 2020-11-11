@@ -51,7 +51,7 @@
                                 <td class="text-left py-0 align-middle">
                                     <div class="btn-group btn-group-sm">
                                         <a href="article/{{$article->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                        <a href="article/dell/{{$article->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                        <a href="/article/dell/{{$article->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                     </div>
                                 </td>
                                 <td>{{$article->code_bare}}</td>
@@ -66,24 +66,6 @@
                                 <td>{{$article->stock_id}}</td>
                             </tr>
                         @endforeach
-                        <tr>
-                            <td class="text-left py-0 align-middle">
-                                <div class="btn-group btn-group-sm">
-                                    <a href="article/1" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                    <a href="article/dell/1" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                                </div>
-                            </td>
-                            <td>Trident</td>
-                            <td>Internet Explorer 4.0</td>
-                            <td>Win 95+</td>
-                            <td> 4</td>
-                            <td>X</td>
-                            <td>Trident</td>
-                            <td>Internet Explorer 4.0</td>
-                            <td>Win 95+</td>
-                            <td> 4</td>
-                            <td>X</td>
-                        </tr>
                         </tbody>
                         <tfoot>
                         <tr>

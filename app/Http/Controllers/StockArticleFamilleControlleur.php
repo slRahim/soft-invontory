@@ -94,23 +94,53 @@ class StockArticleFamilleControlleur extends Controller
     public function editArticle(Request $request,$id){
         $article= Article::find($id);
 
-        $article->save();
-        return view();
+        $article->code_bare=$request->art_code_bare;
+        $article->referance=$request->art_referance;
+        $article->designation=$request->art_designation;
+        $article->colis=$request->art_colis;
+        $article->qte_disponible=$request->art_qte;
+        $article->qte_minimale=$request->art_qte_min;
+        $article->famille_id=$request->art_famille;
+        $article->stock_id=$request->art_stock;
+        $article->prix_achat=$request->art_prix_achat;
+        $article->prix_vente_min=$request->art_prix_vente_min;
+        $article->marge_min=$request->art_marge_min;
+        $article->pourcentage_marge_min=$request->art_pourcentage_marge_min;
+        $article->prix_vente1=$request->art_prix_vente1;
+        $article->marge1=$request->art_marge1;
+        $article->pourcentage_marge1=$request->art_pourcentage_marge1;
+        $article->prix_vente2=$request->art_prix_vente2;
+        $article->marge2=$request->art_marge2;
+        $article->pourcentage_marge_min=$request->art_pourcentage_marge_min;
+
+        $result=$article->save();
+        $data=[
+            'success'=>$result,
+            'articles'=>$article,
+            'success_msg'=>'لقد تم تعديل المنتج بنجاح',
+            'error_msg'=>'هناك خطأ.لم يتم تعديل المنتج',
+        ];
+        return $data;
     }
     public function getArticle($id){
         $article = Article::find($id);
-        $articles_fam =Article::all()->get(5);
+        $articles_fam =Article::where('famille_id',$article->famille_id)
+                            ->orderBy('id','desc')
+                            ->limit(5)->get();
+        $familles=Famille::all();
+        $stocks=Stock::all();
         $data=[
             'from_title'=>'تعديل منتج',
             'from'=>'edit article',
             'article'=>$article,
-            'articles_fam'=>$articles_fam
+            'articles_fam'=>$articles_fam,
+            'familles'=>$familles,
+            'stocks'=>$stocks
         ];
         return view('editArticle',$data);
     }
     public function getArticles(){
-        $articles= Article::all();
-
+        $articles= Article::orderBy('id','desc')->get();
         $data=[
             'from_title'=>'قائمة المنتجات',
             'from'=>'article',
@@ -122,6 +152,6 @@ class StockArticleFamilleControlleur extends Controller
     public function dellArticle($id){
         Article::destroy($id);
 
-        return route();
+        return redirect('/articles');
     }
 }
