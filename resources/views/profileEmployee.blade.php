@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>الملف الشخصي</h1>
+                <h1>الملف الشخصي ({{$employee->code_emp}})</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -17,6 +17,7 @@
     </div>
 @endsection
 @section('content')
+    <div id="toast-container" class="toast-top-left"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
@@ -47,7 +48,7 @@
 
                         </ul>
 
-                        <a href="/employee/dell/{{$employee->id}}" class="btn btn-danger btn-block"><b>Follow</b></a>
+                        <a href="/employee/dell/{{$employee->id}}" class="btn btn-danger btn-block"><b>حذف العامل</b></a>
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -111,275 +112,229 @@
             </div>
             <!-- /.col -->
             <div class="col-md-9">
-                <div class="card">
+                <div class="card card-indigo card-outline-tabs">
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
-                            <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#acompte" data-toggle="tab"><b>تسجيل الغياب/ سحب الراتب</b></a></li>
+                            <li class="nav-item"><a class="nav-link" href="#list_acompte" data-toggle="tab"><b>سجل السحب</b></a></li>
+                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab"> <b>تعديل المعلومات الشخصية</b></a></li>
                         </ul>
                     </div><!-- /.card-header -->
                     <div class="card-body">
                         <div class="tab-content">
-                            <div class="active tab-pane" id="activity">
-                                <!-- Post -->
-                                <div class="post">
-                                    <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" src="/bower_components/admin-lte/dist/img/user1-128x128.jpg" alt="user image">
-                                        <span class="username">
-                          <a href="#">Jonathan Burke Jr.</a>
-                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                        </span>
-                                        <span class="description">Shared publicly - 7:30 PM today</span>
+                            <div class="tab-pane active" id="acompte">
+                                <div class="row">
+                                    <div class="col">
+                                        <button class="btn btn-block btn-info"><b>إضافة غياب جديد</b></button>
                                     </div>
-                                    <!-- /.user-block -->
-                                    <p>
-                                        Lorem ipsum represents a long-held tradition for designers,
-                                        typographers and the like. Some people hate it and argue for
-                                        its demise, but others ignore the hate as they create awesome
-                                        tools to help create filler text for everyone from bacon lovers
-                                        to Charlie Sheen fans.
-                                    </p>
-
-                                    <p>
-                                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                                        <span class="float-right">
-                          <a href="#" class="link-black text-sm">
-                            <i class="far fa-comments mr-1"></i> Comments (5)
-                          </a>
-                        </span>
-                                    </p>
-
-                                    <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                                    <div class="col">
+                                        <button class="btn btn-block btn-secondary float-right"><b>إلغاء كل الغيابات</b></button>
+                                    </div>
                                 </div>
-                                <!-- /.post -->
-
-                                <!-- Post -->
-                                <div class="post clearfix">
-                                    <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" src="/bower_components/admin-lte/dist/img/user7-128x128.jpg" alt="User Image">
-                                        <span class="username">
-                          <a href="#">Sarah Ross</a>
-                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                        </span>
-                                        <span class="description">Sent you a message - 3 days ago</span>
+                                <hr>
+                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>تسجيل سحب جديد</b></button>
+                                <form  id="id_form_acompte">
+                                    @csrf
+                                    <input type="hidden" value="{{$employee->id}}" id="id_emp">
+                                    <div class="form-group">
+                                        <label>سبب السحب</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-align-center"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" name="acompte_objet" required>
+                                        </div>
+                                        <!-- /.input group -->
                                     </div>
-                                    <!-- /.user-block -->
-                                    <p>
-                                        Lorem ipsum represents a long-held tradition for designers,
-                                        typographers and the like. Some people hate it and argue for
-                                        its demise, but others ignore the hate as they create awesome
-                                        tools to help create filler text for everyone from bacon lovers
-                                        to Charlie Sheen fans.
-                                    </p>
-
-                                    <form class="form-horizontal">
-                                        <div class="input-group input-group-sm mb-0">
-                                            <input class="form-control form-control-sm" placeholder="Response">
+                                    <div class="form-group">
+                                        <label>تاريخ السحب</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                            </div>
+                                            <input type="date" class="form-control" name="acompte_date" required>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label>المبلغ</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                            </div>
+                                            <input type="number" min="100"  class="form-control" name="acompte_montant" required>
                                             <div class="input-group-append">
-                                                <button type="submit" class="btn btn-danger">Send</button>
+                                                <div class="input-group-text"><b>DZD</b></div>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
-                                <!-- /.post -->
-
-                                <!-- Post -->
-                                <div class="post">
-                                    <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" src="/bower_components/admin-lte/dist/img/user6-128x128.jpg" alt="User Image">
-                                        <span class="username">
-                          <a href="#">Adam Jones</a>
-                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                        </span>
-                                        <span class="description">Posted 5 photos - 5 days ago</span>
+                                        <!-- /.input group -->
                                     </div>
-                                    <!-- /.user-block -->
-                                    <div class="row mb-3">
-                                        <div class="col-sm-6">
-                                            <img class="img-fluid" src="/bower_components/admin-lte/dist/img/photo1.png" alt="Photo">
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col-sm-6">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <img class="img-fluid mb-3" src="/bower_components/admin-lte/dist/img/photo2.png" alt="Photo">
-                                                    <img class="img-fluid" src="../../dist/img/photo3.jpg" alt="Photo">
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col-sm-6">
-                                                    <img class="img-fluid mb-3" src="/bower_components/admin-lte/dist/img/photo4.jpg" alt="Photo">
-                                                    <img class="img-fluid" src="/bower_components/admin-lte/dist/img/photo1.png" alt="Photo">
-                                                </div>
-                                                <!-- /.col -->
+                                    <div class="form-group">
+                                        <label>كيفية الدفع</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-hand-holding-usd"></i></span>
                                             </div>
-                                            <!-- /.row -->
+                                            <input type="text"  class="form-control" name="acompte_modalite" value="نقدا" readonly>
                                         </div>
-                                        <!-- /.col -->
+                                        <!-- /.input group -->
                                     </div>
-                                    <!-- /.row -->
-
-                                    <p>
-                                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                                        <span class="float-right">
-                          <a href="#" class="link-black text-sm">
-                            <i class="far fa-comments mr-1"></i> Comments (5)
-                          </a>
-                        </span>
-                                    </p>
-
-                                    <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
-                                </div>
-                                <!-- /.post -->
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="timeline">
-                                <!-- The timeline -->
-                                <div class="timeline timeline-inverse">
-                                    <!-- timeline time label -->
-                                    <div class="time-label">
-                        <span class="bg-danger">
-                          10 Feb. 2014
-                        </span>
-                                    </div>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-envelope bg-primary"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 12:05</span>
-
-                                            <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                                            <div class="timeline-body">
-                                                Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                                weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                                jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                                                quora plaxo ideeli hulu weebly balihoo...
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <a href="#" class="btn btn-primary btn-sm">Read more</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-user bg-info"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
-
-                                            <h3 class="timeline-header border-0"><a href="#">Sarah Young</a> accepted your friend request
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-comments bg-warning"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
-
-                                            <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-
-                                            <div class="timeline-body">
-                                                Take me to your leader!
-                                                Switzerland is small and neutral!
-                                                We are more like Germany, ambitious and misunderstood!
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline time label -->
-                                    <div class="time-label">
-                        <span class="bg-success">
-                          3 Jan. 2014
-                        </span>
-                                    </div>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-camera bg-purple"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
-
-                                            <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-
-                                            <div class="timeline-body">
-                                                <img src="http://placehold.it/150x100" alt="...">
-                                                <img src="http://placehold.it/150x100" alt="...">
-                                                <img src="http://placehold.it/150x100" alt="...">
-                                                <img src="http://placehold.it/150x100" alt="...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <div>
-                                        <i class="far fa-clock bg-gray"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.tab-pane -->
-
-                            <div class="tab-pane" id="settings">
-                                <form class="form-horizontal">
-                                    <div class="form-group row">
-                                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputName" placeholder="Name">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputName2" placeholder="Name">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                                        <div class="col-sm-10">
-                                            <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-danger">Submit</button>
-                                        </div>
+                                    <div class="col-12 mb-3 ">
+                                        <button type="submit" class="btn btn-success" >تأكيد</button>
+                                        <button type="reset" class="btn btn-secondary float-right">إلغاء</button>
                                     </div>
                                 </form>
                             </div>
                             <!-- /.tab-pane -->
+
+                            <div class="tab-pane" id="list_acompte">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>الرمزالاجتماعي</th>
+                                        <th>إسم و اللقب</th>
+                                        <th>التاريخ</th>
+                                        <th>الموضوع</th>
+                                        <th> قيمة السحب</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($acomptes as $acompte)
+                                        <tr>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$employee->code_emp}}</td>
+                                            <td>{{$employee->nom}}</td>
+                                            <td>{{$acompte->date}}</td>
+                                            <td>{{$acompte->objet}}</td>
+                                            <td>{{$acompte->montant}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>الرمزالاجتماعي</th>
+                                        <th>إسم و اللقب</th>
+                                        <th>التاريخ</th>
+                                        <th>الموضوع</th>
+                                        <th> قيمة السحب</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+
+                            <div class="tab-pane" id="settings">
+                                <form id="id_form_emp">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label>الإسم و اللقب</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" name="emp_nom" value="{{$employee->nom}}" required>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>العنوان</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="emp_adresse" value="{{$employee->adresse}}" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>المدينة</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-city"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="emp_ville" value="{{$employee->ville}}" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label> البريد الإلكتروني </label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                            </div>
+                                            <input type="email" class="form-control" name="emp_email" value="{{$employee->email}}">
+                                        </div>
+                                        <!-- /.input group -->
+                                        <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>رقم الموبايل 1</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" name="emp_mobile1" value="{{$employee->mobile1}}" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>رقم الموبايل 2</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" name="emp_mobile2" value="{{$employee->mobile2}}">
+                                                </div>
+                                                <!-- /.input group -->
+                                                <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>الراتب الشهري (بالأرقام)</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                                    </div>
+                                                    <input type="number" class="form-control" name="emp_salaire" value="{{$employee->salaire}}" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>تاريخ إستلام المرتب</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control" name="emp_date_paiement" value="{{$employee->date_paiement}}" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-success">تأكيد</button>
+                                    <button type="reset" class="btn btn-secondary float-right">إلغاء</button>
+                                </form>
+                            </div>
+                            <!-- /.tab-pane -->
+
                         </div>
                         <!-- /.tab-content -->
                     </div><!-- /.card-body -->
@@ -391,3 +346,57 @@
         <!-- /.row -->
     </div>
 @endsection
+@section('additionel script')
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": false,
+                "autoWidth": false,
+                "responsive": true,
+                "oLanguage": {
+                    "sSearch": "بحث",
+                }
+            });
+        });
+        $('#id_form_emp').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                method:'POST',
+                data:$(this).serialize(),
+                success:function (result) {
+                    if (result.success == true){
+                        toastr.success(result.success_msg);
+                        setTimeout(function() {
+                            location.reload();
+                        }, 5000);
+                    } else {
+                        toastr.error(result.error_msg);
+                    }
+                },
+            });
+        });
+        $('#id_form_acompte').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url:'/acompte/'+$('#id_emp').val(),
+                method:'POST',
+                data:$(this).serialize(),
+                success:function (result) {
+                    if (result.success == true){
+                        toastr.success(result.success_msg);
+                        setTimeout(function() {
+                            location.reload();
+                        }, 5000);
+                    } else {
+                        toastr.error(result.error_msg);
+                    }
+                },
+            });
+        });
+    </script>
+@endsection
+

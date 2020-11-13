@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AcompteEmp;
 use App\Actionnaire;
 use App\Employee;
 use App\Http\Controllers\Controller as Controller;
@@ -9,8 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB as DB;
 
 
-class RessourceHumaineControlleur extends Controller
-{
+class RessourceHumaineControlleur extends Controller{
+
    public function addActionnaire(Request $request){
        $actionnaire = new Actionnaire();
        $statement = DB::select("SHOW TABLE STATUS LIKE 'actionnaires'");
@@ -83,6 +84,8 @@ class RessourceHumaineControlleur extends Controller
        return redirect('/actionnaires') ;
    }
 //    ****************************************************************************************
+
+
     public function addEmployee(Request $request){
        $employee = new Employee();
         $statement = DB::select("SHOW TABLE STATUS LIKE 'employees'");
@@ -110,23 +113,38 @@ class RessourceHumaineControlleur extends Controller
         $employee->ville=$request->emp_ville;
         $employee->mobile1=$request->emp_mobile1;
         $employee->mobile2=$request->emp_mobile2;
+        $employee->email=$request->emp_email;
         $employee->salaire=$request->emp_salaire;
         $employee->date_paiement=$request->emp_date_paiement;
 
        $result=$employee->save();
        $data=[
-           'success'=>$result
+           'success'=>$result,
+           'success_msg'=>'لقد تم تعديل المعلومات بنجاح',
+           'error_msg'=>'هناك خطأ,لم يتم تعديل المعلومات المطلوبة'
        ];
        return $data;
     }
     public function getEmployee($id){
        $employee=Employee::find($id);
+       $acomptes=Employee::find($id)->acompteEmps;
+
+       if (date('d',strtotime($employee->date_paiement) ) === date("d")){
+           if ($employee->statut === 0){
+               $this->startMounth($employee);
+               $employee=Employee::find($id);
+           }
+       }else{
+           $employee->statut = 0;
+       }
 
        $data=[
          'employee'=>$employee,
+          'acomptes'=>$acomptes,
          'from'=>'employee',
        ];
        return view('profileEmployee',$data);
+
     }
     public function getEmployees(){
        $employees =  Employee::all();
@@ -142,16 +160,65 @@ class RessourceHumaineControlleur extends Controller
        Employee::destroy($id);
        return redirect('employees');
     }
+    public function startMounth($emp){
+        $emp->nombre_absence=0;
+        $emp->solde=$emp->solde + $emp->salaire;
+        $emp->statut=1 ;
+        return $emp->save();
+    }
     public function retraitEmployee(Request $request,$id){
-       $employee=Employee::find($id);
+        $employee=Employee::find($id);
+        $acompte=new AcompteEmp();
+        $statement = DB::select("SHOW TABLE STATUS LIKE 'acompte_emps'");
+        $nextId = $statement[0]->Auto_increment;
+        $year=date('Y');
 
-       return route();
+        $acompte->code_acompte="Aco$nextId/$year";
+        $acompte->date=$request->acompte_date;
+        $acompte->montant=$request->acompte_montant;
+        $acompte->objet=$request->acompte_objet;
+        $acompte->modalite="espece";
+        $acompte->emp_id=$id;
+
+        $result=$acompte->save();
+        if ($result){
+            $employee->dernier_acompte=$request->acompte_montant;
+            $employee->solde= $employee->solde - $request->acompte_montant ;
+        }
+        $result = $employee->save();
+
+        $data=[
+            'success'=>$result,
+            'success_msg'=>'لقد تم تنفيد العملية بنجاح',
+            'error_msg'=>'هناك خطأ,لم يتم تنفيد العملية'
+        ];
+        return $data;
     }
     public function absenceEmployee($id){
        $employee=Employee::find($id);
+       $employee->nombre_absence=$employee->nombre_absence+1;
 
-       $employee->save();
+       $result=$employee->save();
+        $data=[
+            'success'=>$result,
+            'success_msg'=>'لقد تم تنفيد العملية بنجاح',
+            'error_msg'=>'هناك خطأ,لم يتم تنفيد العملية'
+        ];
+        return $data;
     }
+    public function zeroAbsenceEmployee($id){
+        $employee=Employee::find($id);
+        $employee->nombre_absence=0;
+
+        $result=$employee->save();
+        $data=[
+            'success'=>$result,
+            'success_msg'=>'لقد تم تنفيد العملية بنجاح',
+            'error_msg'=>'هناك خطأ,لم يتم تنفيد العملية'
+        ];
+        return $data;
+    }
+
 
 
 

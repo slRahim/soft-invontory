@@ -39,7 +39,11 @@ Route::get('actionnaire/dell/{id}', 'RessourceHumaineControlleur@dellActionnaire
 Route::get('employees', 'RessourceHumaineControlleur@getEmployees');
 Route::post('employee', 'RessourceHumaineControlleur@addEmployee');
 Route::get('employee/{id}', 'RessourceHumaineControlleur@getEmployee');
+Route::post('employee/{id}', 'RessourceHumaineControlleur@editEmployee');
 Route::get('employee/dell/{id}', 'RessourceHumaineControlleur@dellEmployee');
+Route::post('acompte/{id}','RessourceHumaineControlleur@retraitEmployee');
+Route::get('absence/add/{id}','RessourceHumaineControlleur@absenceEmployee');
+Route::get('absence/zero/{id}','RessourceHumaineControlleur@zeroAbsenceEmployee');
 
 Route::get('article/add',function (){
     $data=[

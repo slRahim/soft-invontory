@@ -212,6 +212,9 @@
                                 <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                             </div>
                             <input type="number" class="form-control" name="art_prix_achat" value="{{$article->prix_achat}}" >
+                            <div class="input-group-append">
+                                <div class="input-group-text"><b>DZD</b></div>
+                            </div>
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -224,6 +227,9 @@
                                         <span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="art_prix_vente_min" value="{{$article->prix_vente_min}}">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><b>DZD</b></div>
+                                    </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -236,6 +242,9 @@
                                         <span class="input-group-text"><i class="fas fa-coins"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="art_marge_min" value="{{$article->marge_min}}">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><b>DZD</b></div>
+                                    </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -262,6 +271,9 @@
                                         <span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="art_prix_vente1" value="{{$article->prix_vente1}}">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><b>DZD</b></div>
+                                    </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -274,6 +286,9 @@
                                         <span class="input-group-text"><i class="fas fa-coins"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="art_marge1" value="{{$article->marge1}}">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><b>DZD</b></div>
+                                    </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -300,6 +315,9 @@
                                         <span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="art_prix_vente2" value="{{$article->prix_vente2}}">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><b>DZD</b></div>
+                                    </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -312,6 +330,9 @@
                                         <span class="input-group-text"><i class="fas fa-coins"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="art_marge2" value="{{$article->marge2}}">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><b>DZD</b></div>
+                                    </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>

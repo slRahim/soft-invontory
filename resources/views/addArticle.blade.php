@@ -159,6 +159,9 @@
                                 <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                             </div>
                             <input type="number" class="form-control" name="art_prix_achat" id="p_achat" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><b>DZD</b></div>
+                            </div>
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -171,6 +174,9 @@
                                         <span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="art_prix_vente_min" id="min_vente" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><b>DZD</b></div>
+                                    </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -183,6 +189,9 @@
                                         <span class="input-group-text"><i class="fas fa-coins"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="art_marge_min" id="min_marge" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><b>DZD</b></div>
+                                    </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -209,6 +218,9 @@
                                         <span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="art_prix_vente1" id="vente1">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><b>DZD</b></div>
+                                    </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -221,6 +233,9 @@
                                         <span class="input-group-text"><i class="fas fa-coins"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="art_marge1" id="marge1">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><b>DZD</b></div>
+                                    </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -247,6 +262,9 @@
                                         <span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="art_prix_vente2" id="vente2">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><b>DZD</b></div>
+                                    </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -259,6 +277,9 @@
                                         <span class="input-group-text"><i class="fas fa-coins"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="art_marge2" id="marge2">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><b>DZD</b></div>
+                                    </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>
