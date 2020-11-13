@@ -600,3 +600,12 @@
         <!-- /.row (main row) -->
     </div>
 @endsection
+@section('additionel script')
+    <!-- JQVMap -->
+    <script src="/bower_components/admin-lte/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="/bower_components/admin-lte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- Sparkline -->
+    <script src="/bower_components/admin-lte/plugins/sparklines/sparkline.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="/bower_components/admin-lte/dist/js/pages/dashboard.js"></script>
+@endsection

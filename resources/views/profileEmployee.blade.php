@@ -4,12 +4,13 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Profile Employee</h1>
+                <h1>الملف الشخصي</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">User Profile</li>
+                    <li class="breadcrumb-item"><a href="/dashboard">المكتب</a></li>
+                    <li class="breadcrumb-item"><a href="/employees">العمال</a> </li>
+                    <li class="breadcrumb-item active">الملف الشخصي</li>
                 </ol>
             </div>
         </div>
@@ -21,72 +22,88 @@
             <div class="col-md-3">
 
                 <!-- Profile Image -->
-                <div class="card card-primary card-outline">
+                <div class="card card-success card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
                             <img class="profile-user-img img-fluid img-circle"
-                                 src="/bower_components/admin-lte/dist/img/user4-128x128.jpg"
+                                 src="/image/userimg.png"
                                  alt="User profile picture">
                         </div>
 
-                        <h3 class="profile-username text-center">Nina Mcintire</h3>
+                        <h3 class="profile-username text-center">{{$employee->nom}}</h3>
 
-                        <p class="text-muted text-center">Software Engineer</p>
+                        <p class="text-muted text-center">عامل</p>
 
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Followers</b> <a class="float-right">1,322</a>
+                                <b>الهاتف</b> <a class="float-right">{{$employee->mobile1}}</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Following</b> <a class="float-right">543</a>
+                                <b>الرصيد المتبقي</b> <a class="float-right">{{$employee->solde}}</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Friends</b> <a class="float-right">13,287</a>
+                                <b> الغيابات</b> <a class="float-right">{{$employee->nombre_absence}}</a>
                             </li>
+
                         </ul>
 
-                        <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                        <a href="/employee/dell/{{$employee->id}}" class="btn btn-danger btn-block"><b>Follow</b></a>
                     </div>
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
 
                 <!-- About Me Box -->
-                <div class="card card-primary">
+                <div class="card card-success collapsed-card">
                     <div class="card-header">
-                        <h3 class="card-title">About Me</h3>
+                        <h3 class="card-title float-left">المعلومات </h3>
+                        <div class="card-tools float-right">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                <i class="fas fa-minus"></i></button>
+                        </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <strong><i class="fas fa-book mr-1"></i> Education</strong>
+                        <strong><i class="fas fa-map-marker-alt mr-1"></i> العنوان</strong>
 
-                        <p class="text-muted">
-                            B.S. in Computer Science from the University of Tennessee at Knoxville
-                        </p>
+                        <p class="text-muted">{{$employee->adresse}}</p>
 
                         <hr>
 
-                        <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+                        <strong><i class="fas fa-city mr-1"></i> المدينة</strong>
 
-                        <p class="text-muted">Malibu, California</p>
-
-                        <hr>
-
-                        <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                        <p class="text-muted">
-                            <span class="tag tag-danger">UI Design</span>
-                            <span class="tag tag-success">Coding</span>
-                            <span class="tag tag-info">Javascript</span>
-                            <span class="tag tag-warning">PHP</span>
-                            <span class="tag tag-primary">Node.js</span>
-                        </p>
+                        <p class="text-muted">{{$employee->ville}}</p>
 
                         <hr>
 
-                        <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+                        <strong><i class="fas fa-mobile-alt mr-1"></i> موبايل 2</strong>
 
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                        <p class="text-muted">{{$employee->mobile2}}</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-at mr-1"></i> البريد الإلكتروني</strong>
+
+                        <p class="text-muted">{{$employee->email}}</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-dollar-sign mr-1"></i> الراتب</strong>
+
+                        <p class="text-muted">{{$employee->salaire}}</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-calendar-alt mr-1"></i> تاريخ السحب</strong>
+
+                        <p class="text-muted">{{$employee->date_paiement}}</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-pencil-alt mr-1"></i> آخر سحب</strong>
+
+                        <p class="text-muted">{{$employee->dernier_acompte}}</p>
+
                     </div>
                     <!-- /.card-body -->
                 </div>

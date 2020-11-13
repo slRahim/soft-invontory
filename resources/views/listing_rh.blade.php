@@ -69,7 +69,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-percentage"></i></span>
                                         </div>
-                                        <input type="number" class="form-control" name="act_pourcentage" required>
+                                        <input type="number" min="1" max="100" class="form-control" name="act_pourcentage" required>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -520,3 +520,4 @@
         });
     </script>
 @endsection
+

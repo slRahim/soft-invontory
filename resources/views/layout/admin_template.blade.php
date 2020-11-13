@@ -80,11 +80,6 @@
 <script src="/bower_components/admin-lte/plugins/bootstrap/js/bootstrap-rtl.min.js"></script>
 <!-- ChartJS -->
 <script src="/bower_components/admin-lte/plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="/bower_components/admin-lte/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="/bower_components/admin-lte/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="/bower_components/admin-lte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="/bower_components/admin-lte/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
@@ -103,8 +98,6 @@
 <script src="/bower_components/admin-lte//plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/bower_components/admin-lte/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/bower_components/admin-lte/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/bower_components/admin-lte/dist/js/demo.js"></script>
 <script src="/bower_components/admin-lte/plugins/toastr/toastr.min.js"></script>

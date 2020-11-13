@@ -32,32 +32,49 @@ class RessourceHumaineControlleur extends Controller
        $actionnaire->nom=$request->act_nom;
        $actionnaire->adresse=$request->act_adresse;
        $actionnaire->mobile1=$request->act_mobile1;
-       $actionnaire->pourcentage=$request->pourcentage;
+       $actionnaire->pourcentage=$request->act_pourcentage;
 
        $result=$actionnaire->save();
+
+       $pourcentage_g=Actionnaire::sum('pourcentage');
+
+       if ($pourcentage_g > 100){
+           $data=[
+               'success'=>$result,
+               'success_msg'=>'تم التعديل المعلومات بنجاح',
+               'error_msg'=>'هناك خطأ,لم يتم تعديل المعلومات',
+               'pourcentage_g'=>$pourcentage_g
+           ];
+           return $data ;
+       }
+
        $data=[
            'success'=>$result,
-           'sucess_msg'=>'',
-           'error_msg'=>''
+           'success_msg'=>'تم التعديل المعلومات بنجاح',
+           'error_msg'=>'هناك خطأ,لم يتم تعديل المعلومات',
+           'pourcentage_g'=>$pourcentage_g
        ];
        return $data;
    }
    public function getActionnaire ($id){
        $actionnaire = Actionnaire::find($id);
+       $pourcentage_g=Actionnaire::sum('pourcentage');
 
        $data=[
            'from'=>'actionnaire',
-           'actionnaire'=>$actionnaire
+           'actionnaire'=>$actionnaire,
+           'pourcentage_g'=>$pourcentage_g,
        ];
        return view('profileActionnaire',$data);
    }
    public function getActionnaires(){
        $actionnaires=Actionnaire::all();
+       $pourcentage_g=Actionnaire::sum('pourcentage');
 
        $data =[
            'from_title'=>'الشركاء',
            'actionnaires'=>$actionnaires,
-           'from'=>'actionnaire'
+           'from'=>'actionnaire',
        ];
        return view('listing_rh',$data);
    }
@@ -79,6 +96,7 @@ class RessourceHumaineControlleur extends Controller
         $employee->mobile1=$request->emp_mobile1;
         $employee->mobile2=$request->emp_mobile2;
         $employee->salaire=$request->emp_salaire;
+        $employee->solde=$request->emp_salaire;
         $employee->date_paiement=$request->emp_date_paiement;
 
        $employee->save();

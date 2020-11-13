@@ -33,6 +33,7 @@ Route::get('fournisseur/dell/{id}', 'FournisseurControlleur@dellFournisseur');
 Route::get('actionnaires', 'RessourceHumaineControlleur@getActionnaires');
 Route::post('actionnaire', 'RessourceHumaineControlleur@addActionnaire');
 Route::get('actionnaire/{id}', 'RessourceHumaineControlleur@getActionnaire');
+Route::post('actionnaire/{id}', 'RessourceHumaineControlleur@editActionnaire');
 Route::get('actionnaire/dell/{id}', 'RessourceHumaineControlleur@dellActionnaire');
 
 Route::get('employees', 'RessourceHumaineControlleur@getEmployees');
