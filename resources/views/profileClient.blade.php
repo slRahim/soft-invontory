@@ -119,13 +119,132 @@
                         <ul class="nav nav-pills">
                             <li class="nav-item"><a class="nav-link active" href="#verssemment_facture" data-toggle="tab">دفع دين قديم</a></li>
                             <li class="nav-item"><a class="nav-link" href="#echeance" data-toggle="tab">مواعيد الدفع</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#histo_verssement" data-toggle="tab">سجل الدفع</a></li>
                             <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">تعديل المعلومات الشخصية</a></li>
                         </ul>
                     </div><!-- /.card-header -->
                     <div class="card-body">
                         <div class="tab-content">
                             <div class="active tab-pane" id="verssemment_facture">
+                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>دفع جديد</b></button>
+                                <form id="id_form_verssement">
+                                    @csrf
+                                    <input type="hidden" value="{{$client->id}}" name="client_id" id="id_client">
+                                    <div class="form-group">
+                                        <label> المعني بالأمر</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-id-badge"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control"  value="{{$client->code_client}}" readonly>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>الفاتورة</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-th-list"></i></span>
+                                                    </div>
+                                                    <select class="form-control" name="verssement_facture_id" >
+                                                        <option selected value="$stock->id}}">$stock->code_stock}}</option>
+                                                        <option  value="$stock->id}}">$stock->code_stock}}</option>
+                                                    </select>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label> ملاحظة</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
+                                                    </div>
+                                                    <input type="text"  class="form-control" name="verssement_objet" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label> تاريخ الدفع </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control" name="verssement_date" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>المبلغ</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                                    </div>
+                                                    <input type="number" min="100"  class="form-control" name="verssement_montant" required>
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text"><b>DZD</b></div>
+                                                    </div>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-3 ">
+                                        <button type="submit" class="btn btn-success" >تأكيد</button>
+                                        <button type="reset" class="btn btn-secondary float-right">إلغاء</button>
+                                    </div>
+                                </form>
+                                <hr>
+                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>الفواتير الغير مدفوعة</b></button>
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>رمزالفاتورة</th>
+                                        <th>التاريخ </th>
+                                        <th>المبلغ المطلوب</th>
+                                        <th>المبلغ المدفوع</th>
+                                        <th>المبلغ المتبقي</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
+                                        <tr>
+                                            <td>1</td>
+                                            <td>$echeance->code_echeance}}</td>
+                                            <td>$client->nom}}</td>
+                                            <td>$client->code_client}}</td>
+                                            <td>$echeance->date}}</td>
+                                            <td>$echeance->montant}}</td>
+                                            <td class="text-center py-0 align-middle">
+                                                <div class="btn-group btn-group-sm">
+                                                    <a href="" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>رمزالفاتورة</th>
+                                        <th>التاريخ </th>
+                                        <th>المبلغ المطلوب</th>
+                                        <th>المبلغ المدفوع</th>
+                                        <th>المبلغ المتبقي</th>
+                                        <th></th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
                             </div>
                             <!-- /.tab-pane -->
 
@@ -241,6 +360,50 @@
                                         <th>آخر أجل</th>
                                         <th>المبلغ المطلوب</th>
                                         <th>الملاحظة</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /.tab-pane -->
+
+                            <div class="tab-pane" id="histo_verssement">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <button class="btn btn-block btn-info"><b>طباعة الوضعية الحالية</b></button>
+                                    </div>
+                                </div>
+                                <hr>
+                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>الدفعات</b></button>
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>رمزالتعريف</th>
+                                        <th> التاريخ</th>
+                                        <th>المبلغ المدفوع</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>$client->nom}}</td>
+                                            <td>$echeance->date}}</td>
+                                            <td>$echeance->montant}}</td>
+                                            <td class="text-center py-0 align-middle">
+                                                <div class="btn-group btn-group-sm">
+                                                    <a href="" class="btn btn-success"><i class="fas fa-print"></i> طباعة</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>رمزالتعريف</th>
+                                        <th> التاريخ</th>
+                                        <th>المبلغ المدفوع</th>
+                                        <th></th>
                                     </tr>
                                     </tfoot>
                                 </table>

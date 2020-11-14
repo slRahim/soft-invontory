@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class VerssementClient extends Model
 {
     protected $fillable = [
-        'code_verssement' , 'date', 'client_id',
-        'modalite' , 'montant' , 'objet' ,
+        'id','code_verssement' , 'date', 'client_id',
+        'modalite' , 'montant' , 'objet' , 'facture_id'
     ];
 
     protected $hidden =[
@@ -20,5 +20,7 @@ class VerssementClient extends Model
         return $this->belongsTo('App\Client');
     }
 
-
+    public function factureClient (){
+        return $this->belongsTo('App\FactureClient');
+    }
 }

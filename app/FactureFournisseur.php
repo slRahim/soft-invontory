@@ -20,6 +20,10 @@ class FactureFournisseur extends Model
         return $this->belongsTo('App\Fournisseur');
     }
 
+    public function verssementFournisseurs (){
+        return $this->hasMany('App\VerssementFournisseur','facture_id');
+    }
+
     public function articles()
     {
         return $this->belongsToMany('App\Article','produit_facture_fournisseurs','facture_fournisseur_id','article_id');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Fournisseur ;
@@ -49,9 +50,12 @@ class FournisseurControlleur extends Controller
     }
     public function getFournisseur($id){
         $fournisseur=Fournisseur::find($id);
+        $echeances=Client::find($id)->echeances()->where('etat', 1)->get();
 
         $data=[
-            'fournisseur'=>$fournisseur
+            'from'=>'fournisseur',
+            'fournisseur'=>$fournisseur,
+            'echeances'=>$echeances,
         ];
         return view('profileFournisseur',$data);
     }

@@ -8,7 +8,7 @@ class VerssementFournisseur extends Model
 {
     protected $fillable = [
         'code_verssement' , 'date' , 'fournisseur_id',
-        'modalite' , 'montant' , 'objet' ,
+        'modalite' , 'montant' , 'objet' , 'facture_id',
     ];
 
     protected $hidden =[
@@ -18,5 +18,9 @@ class VerssementFournisseur extends Model
 
     public function fournisseur(){
         return $this->belongsTo('App\Fournisseur');
+    }
+
+    public function factureFournisseur (){
+        return $this->belongsTo('App\FactureClient');
     }
 }

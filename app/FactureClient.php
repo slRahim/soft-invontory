@@ -20,6 +20,10 @@ class FactureClient extends Model
         return $this->belongsTo('App\Client');
     }
 
+    public function verssementClients (){
+        return $this->hasMany('App\VerssementClient','facture_id');
+    }
+
     public function articles()
     {
         return $this->belongsToMany('App\Article','produit_facture_clients','facture_client_id','article_id');

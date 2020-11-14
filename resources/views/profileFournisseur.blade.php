@@ -4,89 +4,109 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Profile fournisseur</h1>
+                <h1>الملف الشخصي ({{$fournisseur->code_fournisseur}})</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">User Profile</li>
+                    <li class="breadcrumb-item"><a href="/dashboard">المكتب</a></li>
+                    <li class="breadcrumb-item"><a href="/fournisseurs">الموردين</a></li>
+                    <li class="breadcrumb-item active">الملف الشخصي</li>
                 </ol>
             </div>
         </div>
     </div>
 @endsection
 @section('content')
+    <div id="toast-container" class="toast-top-left"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
 
                 <!-- Profile Image -->
-                <div class="card card-primary card-outline">
+                <div class="card card-indigo card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
                             <img class="profile-user-img img-fluid img-circle"
-                                 src="/bower_components/admin-lte/dist/img/user4-128x128.jpg"
+                                 src="/image/userimg.png"
                                  alt="User profile picture">
                         </div>
 
-                        <h3 class="profile-username text-center">Nina Mcintire</h3>
+                        <h3 class="profile-username text-center">{{$fournisseur->nom}}</h3>
 
-                        <p class="text-muted text-center">Software Engineer</p>
+                        <p class="text-muted text-center">زبون</p>
 
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Followers</b> <a class="float-right">1,322</a>
+                                <b>موبايل 1</b> <a class="float-right">{{$fournisseur->mobile1}}</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Following</b> <a class="float-right">543</a>
+                                <b>الدين</b> <a class="float-right">{{$fournisseur->credit}}</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Friends</b> <a class="float-right">13,287</a>
+                                <b>آخر دفع</b> <a class="float-right">{{$fournisseur->dernier_verssement}}</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>رأس المال</b> <a class="float-right">{{$fournisseur->chifre_affaire}}</a>
                             </li>
                         </ul>
 
-                        <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                        <a href="/fournisseur/dell/{{$fournisseur->id}}" class="btn btn-danger btn-block"><b>حذف المورد</b></a>
                     </div>
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
 
                 <!-- About Me Box -->
-                <div class="card card-primary">
+                <div class="card card-success collapsed-card">
                     <div class="card-header">
-                        <h3 class="card-title">About Me</h3>
+                        <h3 class="card-title float-left">المعلومات </h3>
+                        <div class="card-tools float-right">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                <i class="fas fa-minus"></i></button>
+                        </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <strong><i class="fas fa-book mr-1"></i> Education</strong>
+                        <strong><i class="fas fa-map-marker-alt mr-1"></i> العنوان</strong>
 
-                        <p class="text-muted">
-                            B.S. in Computer Science from the University of Tennessee at Knoxville
-                        </p>
+                        <p class="text-muted">{{$fournisseur->adresse}}</p>
 
                         <hr>
 
-                        <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+                        <strong><i class="fas fa-city mr-1"></i> المدينة</strong>
 
-                        <p class="text-muted">Malibu, California</p>
-
-                        <hr>
-
-                        <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                        <p class="text-muted">
-                            <span class="tag tag-danger">UI Design</span>
-                            <span class="tag tag-success">Coding</span>
-                            <span class="tag tag-info">Javascript</span>
-                            <span class="tag tag-warning">PHP</span>
-                            <span class="tag tag-primary">Node.js</span>
-                        </p>
+                        <p class="text-muted">{{$fournisseur->ville}}</p>
 
                         <hr>
 
-                        <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+                        <strong><i class="fas fa-mobile-alt mr-1"></i> الهاتف 1</strong>
 
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                        <p class="text-muted">{{$fournisseur->telephone1}}</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-mobile-alt mr-1"></i> الهاتف 2</strong>
+
+                        <p class="text-muted">{{$fournisseur->telephone2}}</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-mobile-alt mr-1"></i> موبايل 2</strong>
+
+                        <p class="text-muted">{{$fournisseur->mobile2}}</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-at mr-1"></i> البريد الإلكتروني</strong>
+
+                        <p class="text-muted">{{$fournisseur->email}}</p>
+
+                        <hr>
+
+                        <strong><i class="fas fa-dollar-sign mr-1"></i> الرمز البريدي</strong>
+
+                        <p class="text-muted">{{$fournisseur->code_postale}}</p>
+
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -94,272 +114,427 @@
             </div>
             <!-- /.col -->
             <div class="col-md-9">
-                <div class="card">
+                <div class="card card-indigo card-outline-tabs">
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
-                            <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#verssemment_facture" data-toggle="tab">دفع دين قديم</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#echeance" data-toggle="tab">مواعيد الدفع</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#histo_verssement" data-toggle="tab">سجل الدفع</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">تعديل المعلومات الشخصية</a></li>
                         </ul>
                     </div><!-- /.card-header -->
                     <div class="card-body">
                         <div class="tab-content">
-                            <div class="active tab-pane" id="activity">
-                                <!-- Post -->
-                                <div class="post">
-                                    <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" src="/bower_components/admin-lte/dist/img/user1-128x128.jpg" alt="user image">
-                                        <span class="username">
-                          <a href="#">Jonathan Burke Jr.</a>
-                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                        </span>
-                                        <span class="description">Shared publicly - 7:30 PM today</span>
+                            <div class="active tab-pane" id="verssemment_facture">
+                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>دفع جديد</b></button>
+                                <form id="id_form_verssement">
+                                    @csrf
+                                    <input type="hidden" value="{{$fournisseur->id}}" name="fournisseur_id" id="id_fournisseur">
+                                    <div class="form-group">
+                                        <label> المعني بالأمر</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-id-badge"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control"  value="{{$fournisseur->code_fournisseur}}" readonly>
+                                        </div>
+                                        <!-- /.input group -->
                                     </div>
-                                    <!-- /.user-block -->
-                                    <p>
-                                        Lorem ipsum represents a long-held tradition for designers,
-                                        typographers and the like. Some people hate it and argue for
-                                        its demise, but others ignore the hate as they create awesome
-                                        tools to help create filler text for everyone from bacon lovers
-                                        to Charlie Sheen fans.
-                                    </p>
-
-                                    <p>
-                                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                                        <span class="float-right">
-                          <a href="#" class="link-black text-sm">
-                            <i class="far fa-comments mr-1"></i> Comments (5)
-                          </a>
-                        </span>
-                                    </p>
-
-                                    <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
-                                </div>
-                                <!-- /.post -->
-
-                                <!-- Post -->
-                                <div class="post clearfix">
-                                    <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" src="/bower_components/admin-lte/dist/img/user7-128x128.jpg" alt="User Image">
-                                        <span class="username">
-                          <a href="#">Sarah Ross</a>
-                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                        </span>
-                                        <span class="description">Sent you a message - 3 days ago</span>
-                                    </div>
-                                    <!-- /.user-block -->
-                                    <p>
-                                        Lorem ipsum represents a long-held tradition for designers,
-                                        typographers and the like. Some people hate it and argue for
-                                        its demise, but others ignore the hate as they create awesome
-                                        tools to help create filler text for everyone from bacon lovers
-                                        to Charlie Sheen fans.
-                                    </p>
-
-                                    <form class="form-horizontal">
-                                        <div class="input-group input-group-sm mb-0">
-                                            <input class="form-control form-control-sm" placeholder="Response">
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-danger">Send</button>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>الفاتورة</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-th-list"></i></span>
+                                                    </div>
+                                                    <select class="form-control" name="verssement_facture_id" >
+                                                        <option selected value="$stock->id}}">$stock->code_stock}}</option>
+                                                        <option  value="$stock->id}}">$stock->code_stock}}</option>
+                                                    </select>
+                                                </div>
+                                                <!-- /.input group -->
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
-                                <!-- /.post -->
-
-                                <!-- Post -->
-                                <div class="post">
-                                    <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" src="/bower_components/admin-lte/dist/img/user6-128x128.jpg" alt="User Image">
-                                        <span class="username">
-                          <a href="#">Adam Jones</a>
-                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                        </span>
-                                        <span class="description">Posted 5 photos - 5 days ago</span>
-                                    </div>
-                                    <!-- /.user-block -->
-                                    <div class="row mb-3">
-                                        <div class="col-sm-6">
-                                            <img class="img-fluid" src="/bower_components/admin-lte/dist/img/photo1.png" alt="Photo">
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col-sm-6">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <img class="img-fluid mb-3" src="/bower_components/admin-lte/dist/img/photo2.png" alt="Photo">
-                                                    <img class="img-fluid" src="../../dist/img/photo3.jpg" alt="Photo">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label> ملاحظة</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
+                                                    </div>
+                                                    <input type="text"  class="form-control" name="verssement_objet" required>
                                                 </div>
-                                                <!-- /.col -->
-                                                <div class="col-sm-6">
-                                                    <img class="img-fluid mb-3" src="/bower_components/admin-lte/dist/img/photo4.jpg" alt="Photo">
-                                                    <img class="img-fluid" src="/bower_components/admin-lte/dist/img/photo1.png" alt="Photo">
-                                                </div>
-                                                <!-- /.col -->
+                                                <!-- /.input group -->
                                             </div>
-                                            <!-- /.row -->
                                         </div>
-                                        <!-- /.col -->
                                     </div>
-                                    <!-- /.row -->
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label> تاريخ الدفع </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control" name="verssement_date" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>المبلغ</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                                    </div>
+                                                    <input type="number" min="100"  class="form-control" name="verssement_montant" required>
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text"><b>DZD</b></div>
+                                                    </div>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-3 ">
+                                        <button type="submit" class="btn btn-success" >تأكيد</button>
+                                        <button type="reset" class="btn btn-secondary float-right">إلغاء</button>
+                                    </div>
+                                </form>
+                                <hr>
+                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>الفواتير الغير مدفوعة</b></button>
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>رمزالفاتورة</th>
+                                        <th>التاريخ </th>
+                                        <th>المبلغ المطلوب</th>
+                                        <th>المبلغ المدفوع</th>
+                                        <th>المبلغ المتبقي</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-                                    <p>
-                                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                                        <span class="float-right">
-                          <a href="#" class="link-black text-sm">
-                            <i class="far fa-comments mr-1"></i> Comments (5)
-                          </a>
-                        </span>
-                                    </p>
-
-                                    <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
-                                </div>
-                                <!-- /.post -->
+                                    <tr>
+                                        <td>1</td>
+                                        <td>$echeance->code_echeance}}</td>
+                                        <td>$client->nom}}</td>
+                                        <td>$client->code_client}}</td>
+                                        <td>$echeance->date}}</td>
+                                        <td>$echeance->montant}}</td>
+                                        <td class="text-center py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>رمزالفاتورة</th>
+                                        <th>التاريخ </th>
+                                        <th>المبلغ المطلوب</th>
+                                        <th>المبلغ المدفوع</th>
+                                        <th>المبلغ المتبقي</th>
+                                        <th></th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="timeline">
-                                <!-- The timeline -->
-                                <div class="timeline timeline-inverse">
-                                    <!-- timeline time label -->
-                                    <div class="time-label">
-                        <span class="bg-danger">
-                          10 Feb. 2014
-                        </span>
-                                    </div>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-envelope bg-primary"></i>
 
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 12:05</span>
-
-                                            <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                                            <div class="timeline-body">
-                                                Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                                weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                                jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                                                quora plaxo ideeli hulu weebly balihoo...
+                            <div class="tab-pane" id="echeance">
+                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>إضافة موعد جديد</b></button>
+                                <form id="id_form_echeance">
+                                    @csrf
+                                    <input type="hidden" value="{{$fournisseur->id}}" name="echeance_fournisseur_id" id="id_fournisseur">
+                                    <input type="hidden" value="fournisseur" name="echeance_from">
+                                    <div class="form-group">
+                                        <label> المعني بالأمر</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-id-badge"></i></span>
                                             </div>
-                                            <div class="timeline-footer">
-                                                <a href="#" class="btn btn-primary btn-sm">Read more</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                            <input type="text" class="form-control"  value="{{$fournisseur->code_fournisseur}}" readonly>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label> آخر أجل للدفع</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control" name="echeance_date" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label> الدفع بعد (يوم)</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-hand-holding-usd"></i></span>
+                                                    </div>
+                                                    <input type="number"  class="form-control" name="echeance_nombre_jour" required>
+                                                </div>
+                                                <!-- /.input group -->
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-user bg-info"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
-
-                                            <h3 class="timeline-header border-0"><a href="#">Sarah Young</a> accepted your friend request
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-comments bg-warning"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
-
-                                            <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-
-                                            <div class="timeline-body">
-                                                Take me to your leader!
-                                                Switzerland is small and neutral!
-                                                We are more like Germany, ambitious and misunderstood!
+                                    <div class="form-group">
+                                        <label>المبلغ</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                                             </div>
-                                            <div class="timeline-footer">
-                                                <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
+                                            <input type="number" min="100"  class="form-control" name="echeance_montant" required>
+                                            <div class="input-group-append">
+                                                <div class="input-group-text"><b>DZD</b></div>
                                             </div>
                                         </div>
+                                        <!-- /.input group -->
                                     </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline time label -->
-                                    <div class="time-label">
-                        <span class="bg-success">
-                          3 Jan. 2014
-                        </span>
-                                    </div>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-camera bg-purple"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
-
-                                            <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-
-                                            <div class="timeline-body">
-                                                <img src="http://placehold.it/150x100" alt="...">
-                                                <img src="http://placehold.it/150x100" alt="...">
-                                                <img src="http://placehold.it/150x100" alt="...">
-                                                <img src="http://placehold.it/150x100" alt="...">
+                                    <div class="form-group">
+                                        <label> ملاحظة</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                                             </div>
+                                            <input type="text"  class="form-control" name="echeance_observation">
                                         </div>
+                                        <!-- /.input group -->
+                                        <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
                                     </div>
-                                    <!-- END timeline item -->
-                                    <div>
-                                        <i class="far fa-clock bg-gray"></i>
+                                    <div class="col-12 mb-3 ">
+                                        <button type="submit" class="btn btn-success" >تأكيد</button>
+                                        <button type="reset" class="btn btn-secondary float-right">إلغاء</button>
+                                    </div>
+                                </form>
+                                <hr>
+                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>قائمة المواعيد</b></button>
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>رمزالتعريف</th>
+                                        <th>إسم المعني </th>
+                                        <th>رمز المعني</th>
+                                        <th>آخر أجل</th>
+                                        <th>المبلغ المطلوب</th>
+                                        <th>الملاحظة</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($echeances as $echeance)
+                                        <tr>
+                                            <td class="text-center py-0 align-middle">
+                                                <div class="btn-group btn-group-sm">
+                                                    <a href="/echeance/{{$echeance->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                                    <a href="/echeance/dell/{{$echeance->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                                </div>
+                                            </td>
+                                            <td>{{$echeance->code_echeance}}</td>
+                                            <td>{{$fournisseur->nom}}</td>
+                                            <td>{{$fournisseur->code_fournisseur}}</td>
+                                            <td>{{$echeance->date}}</td>
+                                            <td>{{$echeance->montant}}</td>
+                                            <td>{{$echeance->observation}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>رمزالتعريف</th>
+                                        <th>إسم المعني </th>
+                                        <th>رمز المعني</th>
+                                        <th>آخر أجل</th>
+                                        <th>المبلغ المطلوب</th>
+                                        <th>الملاحظة</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /.tab-pane -->
+
+                            <div class="tab-pane" id="histo_verssement">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <button class="btn btn-block btn-info"><b>طباعة الوضعية الحالية</b></button>
                                     </div>
                                 </div>
+                                <hr>
+                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>الدفعات</b></button>
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>رمزالتعريف</th>
+                                        <th> التاريخ</th>
+                                        <th>المبلغ المدفوع</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>$client->nom}}</td>
+                                        <td>$echeance->date}}</td>
+                                        <td>$echeance->montant}}</td>
+                                        <td class="text-center py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="" class="btn btn-success"><i class="fas fa-print"></i> طباعة</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>رمزالتعريف</th>
+                                        <th> التاريخ</th>
+                                        <th>المبلغ المدفوع</th>
+                                        <th></th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
                             </div>
                             <!-- /.tab-pane -->
 
                             <div class="tab-pane" id="settings">
-                                <form class="form-horizontal">
-                                    <div class="form-group row">
-                                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputName" placeholder="Name">
+                                <form action="fournisseur" id="id_form_fournisseur">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label>الإسم و اللقب</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" name="fournisseur_nom" value="{{$fournisseur->nom}}" required>
                                         </div>
+                                        <!-- /.input group -->
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>العنوان</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="fournisseur_adresse" value="{{$fournisseur->adresse}}" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputName2" placeholder="Name">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                                        <div class="col-sm-10">
-                                            <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                                                </label>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>المدينة</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-city"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="fournisseur_ville" value="{{$fournisseur->ville}}" required>
+                                                </div>
+                                                <!-- /.input group -->
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-danger">Submit</button>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>رقم الموبايل 1</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" name="fournisseur_mobile1" value="{{$fournisseur->mobile1}}" required>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>رقم الموبايل 2</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" name="fournisseur_mobile2" value="{{$fournisseur->mobile2}}">
+                                                </div>
+                                                <!-- /.input group -->
+                                                <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>رقم الهاتف 1</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" name="fournisseur_telephone1" value="{{$fournisseur->telephone1}}">
+                                                </div>
+                                                <!-- /.input group -->
+                                                <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>رقم الهاتف 2</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" name="fournisseur_telephone2" value="{{$fournisseur->telephone2}}">
+                                                </div>
+                                                <!-- /.input group -->
+                                                <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>البريد الإلكتروني</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                                    </div>
+                                                    <input type="email" class="form-control" name="fournisseur_email" value="{{$fournisseur->email}}">
+                                                </div>
+                                                <!-- /.input group -->
+                                                <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <label>الرمز البريدي</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-shipping-fast"></i></span>
+                                                    </div>
+                                                    <input type="number" class="form-control" name="fournisseur_code_postale" value="{{$fournisseur->code_postale}}">
+                                                </div>
+                                                <!-- /.input group -->
+                                                <small class="form-text text-muted">هدا الحقل ليس إلزامي</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-success">تأكيد</button>
+                                    <button type="reset" class="btn btn-secondary float-right">إلغاء</button>
                                 </form>
                             </div>
                             <!-- /.tab-pane -->
@@ -373,4 +548,58 @@
         </div>
         <!-- /.row -->
     </div>
+@endsection
+@section('additionel script')
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": false,
+                "autoWidth": false,
+                "responsive": true,
+                "oLanguage": {
+                    "sSearch": "بحث",
+                }
+            });
+        });
+        $('#id_form_fournisseur').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                method:'POST',
+                data:$(this).serialize(),
+                success:function (result) {
+                    if (result.success == true){
+                        toastr.success(result.success_msg);
+                        setTimeout(function() {
+                            location.reload();
+                        }, 5000);
+                    } else {
+                        toastr.error(result.error_msg);
+                    }
+                },
+            });
+        });
+        $('#id_form_echeance').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url:'/echeance',
+                method:'POST',
+                data:$(this).serialize(),
+                success:function (result) {
+                    if (result.success == true){
+                        toastr.success(result.success_msg);
+                        setTimeout(function() {
+                            location.reload();
+                        }, 5000);
+                    } else {
+                        toastr.error(result.error_msg);
+                    }
+                },
+            });
+        });
+
+    </script>
 @endsection
