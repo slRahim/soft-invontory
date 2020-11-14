@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a3be6b46-3597-47c4-92d9-23d71748c2dc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RessourceHumaineControlleur.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RessourceHumaineControlleur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/addArticle.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/addArticle.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/editArticle.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/editArticle.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Echeance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Echeance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientControlleur.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientControlleur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EcheanceTresoreControlleur.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EcheanceTresoreControlleur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profileClient.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profileClient.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profileEmployee.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profileEmployee.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -34,78 +34,70 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/views/profileEmployee.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="307">
-                  <caret line="392" column="30" selection-start-line="392" selection-start-column="30" selection-end-line="392" selection-end-column="30" />
-                  <folding>
-                    <element signature="e#783#4442#0#HTML" />
-                    <element signature="e#5411#8818#0#HTML" />
-                    <element signature="e#10262#18308#0#HTML" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RessourceHumaineControlleur.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="353">
-                  <caret line="179" column="26" selection-start-line="179" selection-start-column="26" selection-end-line="179" selection-end-column="26" />
-                  <folding>
-                    <element signature="e#40#59#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/AcompteEmp.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Employee.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="17" selection-start-line="17" selection-end-line="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/routes/web.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="410">
-                  <caret line="45" column="79" selection-start-line="45" selection-start-column="79" selection-end-line="45" selection-end-column="79" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/AcompteEmp.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ClientControlleur.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="49" selection-end-column="10" />
+              <folding>
+                <element signature="e#40#57#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EcheanceTresoreControlleur.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Echeance.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/profileClient.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="342" column="51" selection-start-line="342" selection-start-column="51" selection-end-line="342" selection-end-column="51" />
+              <folding>
+                <element signature="e#628#3833#0#HTML" />
+                <element signature="e#4606#12160#0#HTML" />
+                <element signature="e#18049#21421#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Client.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="20" column="29" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="28" column="62" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -132,19 +124,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2020_11_03_205855_create_produit_facture_fournisseurs_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_11_04_133507_add_foreignkey_produit_facture_fournisseurs_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_11_03_205907_create_produit_facture_clients_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_11_04_133520_add_foreignkey_produit_facture_clients_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/FacturesControlleur.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeControlleur.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/EcheanceTresoreControlleur.php" />
         <option value="$PROJECT_DIR$/public/bower_components/admin-lte/dist/css/custom.css" />
         <option value="$PROJECT_DIR$/resources/views/layout/footer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/header.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/listingRH.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/login.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profileClient.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/profileFournisseur.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/addArticle.php" />
         <option value="$PROJECT_DIR$/resources/views/editArtcile.blade.php" />
@@ -168,7 +157,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/StockArticleFamilleControlleur.php" />
         <option value="$PROJECT_DIR$/resources/views/listingArticle.blade.php" />
         <option value="$PROJECT_DIR$/app/Actionnaire.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ClientControlleur.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/FournisseurControlleur.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_11_02_183558_create_clients_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_11_02_183621_create_fournisseurs_table.php" />
@@ -180,9 +168,13 @@
         <option value="$PROJECT_DIR$/app/Employee.php" />
         <option value="$PROJECT_DIR$/resources/views/addArticle.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/editArticle.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/resources/views/profileEmployee.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RessourceHumaineControlleur.php" />
+        <option value="$PROJECT_DIR$/resources/views/profileEmployee.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ClientControlleur.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Echeance.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/EcheanceTresoreControlleur.php" />
+        <option value="$PROJECT_DIR$/resources/views/profileClient.blade.php" />
       </list>
     </option>
   </component>
@@ -303,7 +295,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -344,6 +335,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -413,15 +405,16 @@
       <workItem from="1605087646293" duration="14447000" />
       <workItem from="1605122972012" duration="6613000" />
       <workItem from="1605258342028" duration="14469000" />
-      <workItem from="1605293667223" duration="15188000" />
+      <workItem from="1605293667223" duration="15395000" />
+      <workItem from="1605346255786" duration="9471000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173927000" />
+    <option name="totallyTimeSpent" value="183605000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.22995462" />
@@ -452,38 +445,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/profileFournisseur.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="10" lean-forward="true" selection-end-line="375" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/bower_components/admin-lte/pages/examples/project-add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="724" column="6" lean-forward="true" selection-start-line="724" selection-start-column="6" selection-end-line="800" selection-end-column="12" />
-          <folding>
-            <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/bower_components/admin-lte/pages/examples/project-edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="875" column="8" lean-forward="true" selection-start-line="875" selection-start-column="8" selection-end-line="875" selection-end-column="8" />
-          <folding>
-            <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/bower_components/admin-lte/pages/tables/data.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -676,27 +637,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StockArticleFamilleControlleur.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
           <caret line="60" column="7" selection-start-line="60" selection-start-column="7" selection-end-line="62" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ClientControlleur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
-          <folding>
-            <element signature="e#40#76#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -767,16 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/listing_rh.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2035">
-          <caret line="502" column="29" lean-forward="true" selection-start-line="502" selection-start-column="29" selection-end-line="502" selection-end-column="29" />
-          <folding>
-            <element signature="e#727#25643#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_11_08_203332_add_new_colums_actionnaires_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -805,32 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Employee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="45" column="79" selection-start-line="45" selection-start-column="79" selection-end-line="45" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profileEmployee.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="392" column="30" selection-start-line="392" selection-start-column="30" selection-end-line="392" selection-end-column="30" />
-          <folding>
-            <element signature="e#783#4442#0#HTML" />
-            <element signature="e#5411#8818#0#HTML" />
-            <element signature="e#10262#18308#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/AcompteEmp.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -838,12 +746,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Employee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profileEmployee.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="135" column="32" selection-start-line="135" selection-start-column="32" selection-end-line="185" selection-end-column="39" />
+          <folding>
+            <element signature="e#809#4472#0#HTML" />
+            <element signature="e#6133#9763#0#HTML" />
+            <element signature="e#9949#11839#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RessourceHumaineControlleur.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="179" column="26" selection-start-line="179" selection-start-column="26" selection-end-line="179" selection-end-column="26" />
+        <state relative-caret-position="115">
+          <caret line="122" column="11" selection-start-line="122" selection-start-column="11" selection-end-line="123" selection-end-column="66" />
           <folding>
             <element signature="e#40#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/listing_rh.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="412" column="40" lean-forward="true" selection-start-line="412" selection-start-column="40" selection-end-line="417" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="28" column="62" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Echeance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ClientControlleur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="49" selection-end-column="10" />
+          <folding>
+            <element signature="e#40#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EcheanceTresoreControlleur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profileClient.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="342" column="51" selection-start-line="342" selection-start-column="51" selection-end-line="342" selection-end-column="51" />
+          <folding>
+            <element signature="e#628#3833#0#HTML" />
+            <element signature="e#4606#12160#0#HTML" />
+            <element signature="e#18049#21421#0#HTML" />
           </folding>
         </state>
       </provider>

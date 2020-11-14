@@ -24,6 +24,9 @@ Route::get('clients','ClientControlleur@getClients');
 Route::get('client/{id}','ClientControlleur@getClient');
 Route::post('client','ClientControlleur@addClient');
 Route::get('client/dell/{id}','ClientControlleur@dellClient');
+Route::post('client/{id}','ClientControlleur@editClient');
+
+Route::post('echeance','EcheanceTresoreControlleur@addEcheance');
 
 Route::get('fournisseurs', 'FournisseurControlleur@getFournisseurs');
 Route::get('fournisseur/{id}', 'FournisseurControlleur@getFournisseur');

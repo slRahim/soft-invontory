@@ -125,10 +125,10 @@
                             <div class="tab-pane active" id="acompte">
                                 <div class="row">
                                     <div class="col">
-                                        <button class="btn btn-block btn-info"><b>إضافة غياب جديد</b></button>
+                                        <button class="btn btn-block btn-info" id="id_absence_add"><b>إضافة غياب جديد</b></button>
                                     </div>
                                     <div class="col">
-                                        <button class="btn btn-block btn-secondary float-right"><b>إلغاء كل الغيابات</b></button>
+                                        <button class="btn btn-block btn-secondary float-right" id="id_absence_zero"><b>إلغاء كل الغيابات</b></button>
                                     </div>
                                 </div>
                                 <hr>
@@ -385,6 +385,38 @@
                 url:'/acompte/'+$('#id_emp').val(),
                 method:'POST',
                 data:$(this).serialize(),
+                success:function (result) {
+                    if (result.success == true){
+                        toastr.success(result.success_msg);
+                        setTimeout(function() {
+                            location.reload();
+                        }, 5000);
+                    } else {
+                        toastr.error(result.error_msg);
+                    }
+                },
+            });
+        });
+        $('#id_absence_add').on('click',function () {
+            $.ajax({
+                url:'/absence/add/'+$('#id_emp').val(),
+                method:'get',
+                success:function (result) {
+                    if (result.success == true){
+                        toastr.success(result.success_msg);
+                        setTimeout(function() {
+                            location.reload();
+                        }, 5000);
+                    } else {
+                        toastr.error(result.error_msg);
+                    }
+                },
+            });
+        });
+        $('#id_absence_zero').on('click',function () {
+            $.ajax({
+                url:'/absence/zero/'+$('#id_emp').val(),
+                method:'get',
                 success:function (result) {
                     if (result.success == true){
                         toastr.success(result.success_msg);

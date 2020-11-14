@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Echeance;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Client ;
@@ -36,21 +37,27 @@ class ClientControlleur extends Controller
         $client->ville=$request->client_ville;
         $client->mobile1=$request->client_mobile1;
         $client->mobile2=$request->client_mobile2;
+        $client->telephone1=$request->client_telephone1;
+        $client->telephone2=$request->client_telephone2;
         $client->email=$request->client_email;
         $client->code_postale=$request->client_code_postale;
 
         $result=$client->save();
         $data=[
             'success'=>$result,
+            'success_msg'=>'لقد تم تعديل المعلومات بنجاح',
+            'error_msg'=>'هناك خطأ,لم يتم تعديل المعلومات المطلوبة'
         ];
         return $data;
     }
     public function getClient($id){
         $client=Client::find($id);
+        $echeances=Client::find($id)->echeances()->where('etat', 1)->get();
 
         $data=[
             'from'=>'client',
             'client'=>$client,
+            'echeances'=>$echeances,
         ];
         return view('profileClient',$data);
     }

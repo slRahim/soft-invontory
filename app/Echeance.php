@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Echeance extends Model
 {
     protected $fillable = [
-        'code_echeance' , 'montant' , 'nombre_jours',
+        'id','code_echeance' , 'montant' , 'nombre_jour',
         'date','observation' ,'etat' , 'client_id' , 'fournisseur_id',
 
     ];
