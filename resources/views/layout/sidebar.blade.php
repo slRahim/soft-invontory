@@ -131,50 +131,15 @@
                 </li>
 
                 <li class="nav-header text-bold text-center">قسم المحاسبة</li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-calendar-alt"> مواعيد الدفع</i>
-                        <p>
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
+                <li class="nav-item">
+                    <a href="/echeances" class="nav-link">
+                        <i class="fas fa-calendar"> إضافة / قائمة المواعيد</i>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-th-list"> قائمة المواعيد</i>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-calendar-plus"> إضافة موعد زبون</i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-calendar-plus"> إضافة موعد لمورد</i>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-coins"> الصندوق</i>
-                        <p>
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <i class="fas fa-chart-bar"> الإحصائيات</i>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-th-list"> قائمة الصناديق</i>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-piggy-bank"> إضافة صندوق جديد</i>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
 
             </ul>

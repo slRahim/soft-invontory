@@ -252,7 +252,7 @@
                                 <button class="btn btn-block btn-outline-dark mb-2" disabled><b>إضافة موعد جديد</b></button>
                                 <form id="id_form_echeance">
                                     @csrf
-                                    <input type="hidden" value="{{$fournisseur->id}}" name="echeance_fournisseur_id" id="id_fournisseur">
+                                    <input type="hidden" value="{{$fournisseur->id}}" name="echeance_fournisseur_id">
                                     <input type="hidden" value="fournisseur" name="echeance_from">
                                     <div class="form-group">
                                         <label> المعني بالأمر</label>
@@ -568,6 +568,24 @@
         $('#id_form_fournisseur').submit(function (e) {
             e.preventDefault();
             $.ajax({
+                method:'POST',
+                data:$(this).serialize(),
+                success:function (result) {
+                    if (result.success == true){
+                        toastr.success(result.success_msg);
+                        setTimeout(function() {
+                            location.reload();
+                        }, 5000);
+                    } else {
+                        toastr.error(result.error_msg);
+                    }
+                },
+            });
+        });
+        $('#id_form_echeance').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url:'/echeance',
                 method:'POST',
                 data:$(this).serialize(),
                 success:function (result) {

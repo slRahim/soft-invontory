@@ -50,7 +50,8 @@ class EcheanceTresoreControlleur extends Controller
     public function getEcheances(){
         $echeances=Echeance::all();
 
-        return route();
+
+        return view('listingEcheance');
     }
     public function dellEcheance($id){
         Echeance::destroy($id);

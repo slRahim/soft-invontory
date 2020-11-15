@@ -38,19 +38,22 @@ class FournisseurControlleur extends Controller
         $fournisseur->ville=$request->fournisseur_ville;
         $fournisseur->mobile1=$request->fournisseur_mobile1;
         $fournisseur->mobile2=$request->fournisseur_mobile2;
+        $fournisseur->telephone1=$request->fournisseur_telephone1;
+        $fournisseur->telephone2=$request->fournisseur_telephone2;
         $fournisseur->email=$request->fournisseur_email;
         $fournisseur->code_postale=$request->fournisseur_code_postale;
 
         $result=$fournisseur->save();
         $data=[
-          'success'=>$result,
-
+            'success'=>$result,
+            'success_msg'=>'لقد تم تعديل المعلومات بنجاح',
+            'error_msg'=>'هناك خطأ,لم يتم تعديل المعلومات المطلوبة'
         ];
         return $data;
     }
     public function getFournisseur($id){
         $fournisseur=Fournisseur::find($id);
-        $echeances=Client::find($id)->echeances()->where('etat', 1)->get();
+        $echeances=Fournisseur::find($id)->echeances()->where('etat', 1)->get();
 
         $data=[
             'from'=>'fournisseur',

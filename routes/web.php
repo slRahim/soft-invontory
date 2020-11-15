@@ -27,9 +27,11 @@ Route::get('client/dell/{id}','ClientControlleur@dellClient');
 Route::post('client/{id}','ClientControlleur@editClient');
 
 Route::post('echeance','EcheanceTresoreControlleur@addEcheance');
+Route::get('echeances','EcheanceTresoreControlleur@getEcheances');
 
 Route::get('fournisseurs', 'FournisseurControlleur@getFournisseurs');
 Route::get('fournisseur/{id}', 'FournisseurControlleur@getFournisseur');
+Route::post('fournisseur/{id}', 'FournisseurControlleur@editFournisseur');
 Route::post('fournisseur', 'FournisseurControlleur@addFournisseur');
 Route::get('fournisseur/dell/{id}', 'FournisseurControlleur@dellFournisseur');
 
