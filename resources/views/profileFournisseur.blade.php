@@ -249,7 +249,7 @@
                             <!-- /.tab-pane -->
 
                             <div class="tab-pane" id="echeance">
-                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>إضافة موعد جديد</b></button>
+                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>إضافة وعد جديد</b></button>
                                 <form id="id_form_echeance">
                                     @csrf
                                     <input type="hidden" value="{{$fournisseur->id}}" name="echeance_fournisseur_id">
@@ -320,7 +320,7 @@
                                     </div>
                                 </form>
                                 <hr>
-                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>قائمة المواعيد</b></button>
+                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>قائمة الوعود</b></button>
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>

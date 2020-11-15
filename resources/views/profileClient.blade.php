@@ -118,7 +118,7 @@
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
                             <li class="nav-item"><a class="nav-link active" href="#verssemment_facture" data-toggle="tab">دفع دين قديم</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#echeance" data-toggle="tab">مواعيد الدفع</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#echeance" data-toggle="tab">وعود الدفع</a></li>
                             <li class="nav-item"><a class="nav-link" href="#histo_verssement" data-toggle="tab">سجل الدفع</a></li>
                             <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">تعديل المعلومات الشخصية</a></li>
                         </ul>
@@ -249,7 +249,7 @@
                             <!-- /.tab-pane -->
 
                             <div class="tab-pane" id="echeance">
-                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>إضافة موعد جديد</b></button>
+                                <button class="btn btn-block btn-outline-dark mb-2" disabled><b>إضافة وعد جديد</b></button>
                                 <form id="id_form_echeance">
                                     @csrf
                                     <input type="hidden" value="{{$client->id}}" name="echeance_client_id" id="id_client">

@@ -26,9 +26,6 @@ Route::post('client','ClientControlleur@addClient');
 Route::get('client/dell/{id}','ClientControlleur@dellClient');
 Route::post('client/{id}','ClientControlleur@editClient');
 
-Route::post('echeance','EcheanceTresoreControlleur@addEcheance');
-Route::get('echeances','EcheanceTresoreControlleur@getEcheances');
-
 Route::get('fournisseurs', 'FournisseurControlleur@getFournisseurs');
 Route::get('fournisseur/{id}', 'FournisseurControlleur@getFournisseur');
 Route::post('fournisseur/{id}', 'FournisseurControlleur@editFournisseur');
@@ -62,6 +59,12 @@ Route::get('articles','StockArticleFamilleControlleur@getArticles');
 Route::get('article/{id}','StockArticleFamilleControlleur@getArticle');
 Route::post('article/{id}','StockArticleFamilleControlleur@editArticle');
 Route::get('article/dell/{id}','StockArticleFamilleControlleur@dellArticle');
+
+Route::post('echeance','EcheanceTresoreControlleur@addEcheance');
+Route::get('echeances','EcheanceTresoreControlleur@getEcheances');
+Route::get('echeance/{id}','EcheanceTresoreControlleur@getEcheance');
+Route::post('echeance/{id}','EcheanceTresoreControlleur@editEcheance');
+Route::get('echeance/dell/{id}','EcheanceTresoreControlleur@dellEcheance');
 
 Route::get('familles','StockArticleFamilleControlleur@getFamillesStocks');
 Route::post('famille','StockArticleFamilleControlleur@addFamille');

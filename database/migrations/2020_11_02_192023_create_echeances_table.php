@@ -20,7 +20,7 @@ class CreateEcheancesTable extends Migration
             $table->integer('nombre_jour');
             $table->date('date');
             $table->string('observation',255)->nullable();
-            $table->integer('etat')->default(1);
+            $table->string('etat')->default("active");
             $table->timestamps();
         });
 

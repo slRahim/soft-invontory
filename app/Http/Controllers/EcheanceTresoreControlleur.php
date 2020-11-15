@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\Echeance;
-use App\Http\Controllers\Controller;
+use App\Fournisseur;
+use App\Http\Controllers\Controller as Controller;
 use App\Tresore;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB as DB;
@@ -39,19 +41,47 @@ class EcheanceTresoreControlleur extends Controller
     public function editEcheance(Request $request , $id){
         $echeance =  Echeance::find($id);
 
-        $echeance->save();
-        return route();
+        $echeance->montant=$request->echeance_montant;
+        $echeance->date=$request->echeance_date;
+        $echeance->nombre_jour=$request->echeance_nombre_jour;
+        $echeance->observation=$request->echeance_observation;
+        $echeance->etat=$request->echeance_etat;
+
+        $result=$echeance->save();
+        $data=[
+            'success'=>$result,
+            'success_msg'=>'لقد تم تعديل المعلومات بنجاح',
+            'error_msg'=>'هناك خطأ,لم يتم تعديل المعلومات المطلوبة'
+        ];
+        return $data;
     }
     public function getEcheance($id){
         $echeance = Echeance::find($id);
+        if ($echeance->client_id !== null){
+            $user=$echeance->client;
+        }else{
+            $user=$echeance->fournisseur;
+        }
 
-        return route();
+        $data=[
+            'from_title'=>'وعد دفع',
+            'echeance'=>$echeance,
+            'owner'=>$user
+        ];
+        return view('editEcheance',$data);
     }
     public function getEcheances(){
-        $echeances=Echeance::all();
+        $echeances=Echeance::where('etat','<>','regle')->orderBy('id','desc')->get();
+        $clients=Client::all();
+        $fournisseurs=Fournisseur::all();
 
-
-        return view('listingEcheance');
+        $data=[
+            'from_title'=>'وعود الدفع',
+            'echeances'=>$echeances,
+            'clients'=>$clients,
+            'fournisseurs'=>$fournisseurs,
+        ];
+        return view('listingEcheance',$data);
     }
     public function dellEcheance($id){
         Echeance::destroy($id);

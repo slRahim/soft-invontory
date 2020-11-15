@@ -133,7 +133,7 @@
                 <li class="nav-header text-bold text-center">قسم المحاسبة</li>
                 <li class="nav-item">
                     <a href="/echeances" class="nav-link">
-                        <i class="fas fa-calendar"> إضافة / قائمة المواعيد</i>
+                        <i class="fas fa-calendar"> إضافة / قائمة الوعود</i>
                     </a>
                 </li>
                 <li class="nav-item">
