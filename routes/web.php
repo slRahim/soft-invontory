@@ -60,6 +60,9 @@ Route::get('article/{id}','StockArticleFamilleControlleur@getArticle');
 Route::post('article/{id}','StockArticleFamilleControlleur@editArticle');
 Route::get('article/dell/{id}','StockArticleFamilleControlleur@dellArticle');
 
+Route::get('/factures/client/{type}','FacturesControlleur@getFacturesClient');
+Route::get('/factures/fournisseur/{type}','FacturesControlleur@getFacturesFournisseur');
+
 Route::post('echeance','EcheanceTresoreControlleur@addEcheance');
 Route::get('echeances','EcheanceTresoreControlleur@getEcheances');
 Route::get('echeance/{id}','EcheanceTresoreControlleur@getEcheance');

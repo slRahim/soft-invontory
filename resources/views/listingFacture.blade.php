@@ -4,12 +4,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">listing facture</h1>
+                <h1 class="m-0 text-dark">{$from_title}}</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard v1</li>
+                    <li class="breadcrumb-item"><a href="/dashboard">المكتب</a></li>
+                    <li class="breadcrumb-item active">{$from_title}}</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -17,6 +17,24 @@
 @endsection
 @section('content')
     <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Minimal</label>
+                    <select class="form-control select2" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                        <option data-select2-id="3">Alabama</option>
+                        <option data-select2-id="38">Alaska</option>
+                        <option data-select2-id="39">California</option>
+                        <option data-select2-id="40">Delaware</option>
+                        <option data-select2-id="41">Tennessee</option>
+                        <option data-select2-id="42">Texas</option>
+                        <option data-select2-id="43">Washington</option>
+                    </select>
+
+                </div>
+
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="card card-outline card-warning">
@@ -461,6 +479,7 @@
     </div>
 @endsection
 @section('additionel script')
+    <script src="/bower_components/admin-lte/plugins/select2/js/select2.full.min.js"></script>
     <script>
         $(function () {
             $("#example1").DataTable({
@@ -472,6 +491,8 @@
                 "autoWidth": true,
                 "responsive": true,
             });
+            $('.select2').select2();
         });
     </script>
 @endsection
+

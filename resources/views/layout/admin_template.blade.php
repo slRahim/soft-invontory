@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="/bower_components/admin-lte/dist/css/custom.css">
     <!-- toastr css -->
     <link rel="stylesheet" href="/bower_components/admin-lte/plugins/toastr/toastr.min.css">
+    <!-- select2 css -->
+    <link rel="stylesheet" href="/bower_components/admin-lte/plugins/select2/css/select2.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 

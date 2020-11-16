@@ -40,13 +40,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link ">
-                                <i class="fas fa-cash-register"> فاتورة بيع</i>
+                            <a href="/factures/client/vente" class="nav-link ">
+                                <i class="fas fa-cash-register"> فواتير البيع</i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
-                                <i class="fas fa-file-alt"> فاتورة عودة</i>
+                            <a href="/factures/client/retour" class="nav-link">
+                                <i class="fas fa-file-alt"> فواتير العودة</i>
                             </a>
                         </li>
                     </ul>
@@ -60,12 +60,12 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link active">
-                                <i class="fas fa-file-invoice-dollar"> فاتورة شراء</i>
+                            <a href="/factures/fournisseur/achat" class="nav-link active">
+                                <i class="fas fa-file-invoice-dollar"> فواتير الشراء</i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="/factures/fournisseur/commande" class="nav-link">
                                 <i class="fas fa-external-link-square-alt"> أمر شراء</i>
                             </a>
                         </li>
