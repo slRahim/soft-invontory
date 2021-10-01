@@ -21,7 +21,8 @@
             <div class="col">
                 <div class="form-group">
                     <label>Minimal</label>
-                    <select class="form-control select2" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                    <select class="form-control select2" style="width: 100%;" data-select2-id="1" tabindex="-1"
+                            aria-hidden="true">
                         <option data-select2-id="3">Alabama</option>
                         <option data-select2-id="38">Alaska</option>
                         <option data-select2-id="39">California</option>
